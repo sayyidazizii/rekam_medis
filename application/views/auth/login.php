@@ -1,4 +1,4 @@
-<?php $this->load->view('layout/top') ?>
+<?php $this->load->view('layout/header') ?>
 <body>
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">

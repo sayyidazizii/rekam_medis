@@ -8,6 +8,9 @@ class Login extends CI_Controller {
                 parent::__construct();
                 // Your own constructor code
 				$this->load->model('M_user');
+				if ($this->session->userdata('is_login') == true){
+					redirect('Home');
+				}
         }
 
 	public function index()
@@ -15,28 +18,33 @@ class Login extends CI_Controller {
 		$this->load->view('auth/login');
 	}
 
+	
+
 	public function Auth()
 	{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 
-		var_dump($username,$password);
+		// var_dump($username,$password);
 
-		// if($this->M_user->Checkuser($username,$password) == true){
-		// 	$row = $this->M_user->getbyusername($username);
-		// 	$data_user = array(
-		// 			'username'=>$username,
-		// 			'password'=>$password,
-		// 			'id_level'=>$row->id_level,
-		// 			'is_login'=> true
-		// 	);
-		// 	$this->session->set_userdata($data_user);
-		// 	//jika berhasil redirect ke halaman home
-		// 	redirect('Home');
-		// 	exit;
-		// }else{
-		// 	redirect('Login');
-		// }
+		if($this->M_user->Checkuser($username,$password) == true){
+			$row = $this->M_user->getbyusername($username);
+			$data_user = array(
+					'username'=>$username,
+					'password'=>$password,
+					'level'=>$row->level,
+					'is_login'=> true
+			);
+			// true;
+			// var_dump($data_user);
+			$this->session->set_userdata($data_user);
+			//jika berhasil redirect ke halaman home
+			redirect('Home');
+			exit;
+		}else{
+			// false;
+			redirect('Login');
+		}
 	}
     public function logout()
     {

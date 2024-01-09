@@ -9,7 +9,7 @@ class Home extends CI_Controller {
         if ($this->session->userdata('is_login') !=true){
             redirect('Login');
         }
-        $this->load->model('toko_buku');
+        $this->load->model('M_user');
     }
 
 	public function index()

@@ -11,7 +11,7 @@
                 $this->table,
                 array(
                     'username' => $username,
-                    'password' => $password
+                    'password' => md5($password)
                 )
              );
              if ($query->num_rows() >0) {
