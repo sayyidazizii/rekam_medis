@@ -13,11 +13,11 @@
                     'username' => $username,
                     'password' => md5($password)
                 )
-             );
-             if ($query->num_rows() >0) {
-                 return true;
-             }else{
-                 return false;
+            );
+            if ($query->num_rows() >0) {
+                return true;
+            }else{
+                return false;
             }
             exit;
         }

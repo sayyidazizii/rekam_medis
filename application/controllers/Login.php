@@ -15,7 +15,9 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('layout/header');
 		$this->load->view('auth/login');
+		$this->load->view('layout/footer');
 	}
 
 	
@@ -30,10 +32,10 @@ class Login extends CI_Controller {
 		if($this->M_user->Checkuser($username,$password) == true){
 			$row = $this->M_user->getbyusername($username);
 			$data_user = array(
-					'username'=>$username,
-					'password'=>$password,
-					'level'=>$row->level,
-					'is_login'=> true
+					'username'		=> $username,
+					'password'		=> $password,
+					'level'			=> $row->level,
+					'is_login'		=> true
 			);
 			// true;
 			// var_dump($data_user);

@@ -1,14 +1,3 @@
-<?php $this->load->view('layout/header')?>
-    <!-- Sidebar Start -->
-<?php $this->load->view('layout/sidebar')?>
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
-    <div class="body-wrapper">
-      <!--  Header Start -->
-<?php $this->load->view('layout/navbar')?>
-      <!--  Header End -->
-    <!--      template         -->
-
           <div class="container-fluid">
             <!--  Row 1 -->
             <div class="row">

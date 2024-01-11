@@ -1,4 +1,3 @@
-<?php $this->load->view('layout/header') ?>
 <body>
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
@@ -12,13 +11,13 @@
                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
                   <img src="<?= base_url('')?>/assets/img/logo.jpg" class="rounded-circle" width="100" alt="">
                 </a>
-                <p class="text-center">Login</p>
+                <p class="text-center fw-bold fs-5">Wellcome to Rekam Medis</p>
                 <form action="<?= base_url('Login/Auth')?>" method="POST">
                   <div class="mb-3">
-                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="username">
+                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="username" autocomplete="off">
                   </div>
                   <div class="mb-4">
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="password">
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="password" autocomplete="off">
                   </div>
                   <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</button>
                 </form>
