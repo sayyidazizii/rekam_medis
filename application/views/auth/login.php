@@ -8,6 +8,12 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
+                <?php if ($this->session->flashdata('error_login') == true){
+                  ?>
+                  <div class="alert alert-danger" role="alert">Username atau password yang Anda masukkan salah!</div>
+                  <?php
+                }
+                ?>
                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
                   <img src="<?= base_url('')?>/assets/img/logo.jpg" class="rounded-circle" width="100" alt="">
                 </a>

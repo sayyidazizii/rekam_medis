@@ -5,30 +5,13 @@
         public $table = 'user';
 
         //login
-        public function checkuser($username,$password)
-        {
-            $query = $this->db->get_where(
-                $this->table,
-                array(
-                    'username' => $username,
-                    'password' => md5($password)
-                )
-            );
-            if ($query->num_rows() >0) {
-                return true;
-            }else{
-                return false;
-            }
-            exit;
+        function check_user($username, $password) {
+            $query = $this->db->get_where($this->table, array(
+                'username' => $username,
+                'password' => $password
+            ));
+            return $query;
         }
-
-        //dapatkan data user berdasarkan username
-        public function getbyusername($username)
-        {
-            $this->db->where('username',$username);
-            return $this->db->get($this->table)->row();
-        }
-
 
         //user crud
         public function get_data()

@@ -2,9 +2,9 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="<?= base_url('')?>" class="text-nowrap logo-img">
-          <img src="<?= base_url('')?>/assets/img/logo.jpg" class="rounded-circle" width="50" alt="">
-          <span class="fw-bolder text-dark">REKAM MEDIS</span>
+          <a href="<?= base_url('')?>" class="d-flex align-items-center">
+          <img src="<?= base_url('')?>/assets/img/logo.jpg" class="rounded-circle" width="40" alt="">
+          <span class="fw-bolder text-dark fs-6 mx-2">REKAM MEDIS</span>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>

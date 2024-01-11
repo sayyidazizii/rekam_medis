@@ -6,52 +6,56 @@ class Login extends CI_Controller {
 	public function __construct()
         {
                 parent::__construct();
-                // Your own constructor code
 				$this->load->model('M_user');
-				if ($this->session->userdata('is_login') == true){
-					redirect('Home');
-				}
         }
 
 	public function index()
 	{
+		if ($this->session->userdata('is_login') == true){
+			$level = $this->session->userdata('level');
+
+			if ($level == 1){
+				redirect('Home');
+			} else if ($level == 2){
+				echo "Ini adalah halaman apoteker";
+			} else {
+				echo "Ini adalah halaman dokter";
+			}
+		}
+
 		$this->load->view('layout/header');
 		$this->load->view('auth/login');
 		$this->load->view('layout/footer');
 	}
 
-	
-
 	public function Auth()
 	{
 		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+		$password = md5( $this->input->post('password' ));
 
-		// var_dump($username,$password);
+		$cek_login = $this->M_user->check_user($username, $password);
 
-		if($this->M_user->Checkuser($username,$password) == true){
-			$row = $this->M_user->getbyusername($username);
+		if ($cek_login->num_rows() > 0) {
+			$user = $cek_login->row();
+
 			$data_user = array(
-					'username'		=> $username,
-					'password'		=> $password,
-					'level'			=> $row->level,
-					'is_login'		=> true
+				'id_user' 	=> $user->id_user,
+				'nama'		=> $user->nama,
+				'level'		=> $user->level,
+				'is_login'	=> true
 			);
-			// true;
-			// var_dump($data_user);
+
 			$this->session->set_userdata($data_user);
-			//jika berhasil redirect ke halaman home
-			redirect('Home');
-			exit;
-		}else{
-			// false;
-			redirect('Login');
+			redirect('login');
+		} else {
+			$this->session->set_flashdata(array('error_login' => true));
+			redirect('login');
 		}
 	}
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('Login');
+        redirect('login');
     }
 
 }
