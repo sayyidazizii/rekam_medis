@@ -32,7 +32,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Pasien') ?>" aria-expanded="false">
                 <span>
-                  <i class="ti ti-article"></i>
+                  <i class="ti ti-user"></i>
                 </span>
                 <span class="hide-menu">Data Pasien</span>
               </a>
@@ -40,7 +40,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Tarif') ?>" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-receipt-tax"></i>
                 </span>
                 <span class="hide-menu">Data Tarif</span>
               </a>
@@ -48,7 +48,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Obat') ?>" aria-expanded="false">
                 <span>
-                  <i class="ti ti-cards"></i>
+                  <i class="ti ti-pill"></i>
                 </span>
                 <span class="hide-menu">Data Obat</span>
               </a>

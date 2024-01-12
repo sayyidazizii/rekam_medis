@@ -23,7 +23,7 @@ class M_tarif extends CI_Model
     function get_data_tarif($id_tarif)
     {
         $this->db->where('id_data_tarif', $id_tarif);
-        return $this->db->get($this->table)->result();
+        return $this->db->get($this->table)->row();
     }
 
     function save_update_tax($id_tarif, $data_tarif)
