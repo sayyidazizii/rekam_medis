@@ -16,26 +16,26 @@
         //user crud
         public function get_data()
         {
-            $query = $this->db->get('$this->table');
+            $query = $this->db->get($this->table);
             return $query->result();
         }
 
         public function insert($data)
         {
-            $this->db->insert('user', $data);
+            $this->db->insert($this->table, $data);
         }
 
         public function getbyid($id)
         {
             $this->db->where('id_user',$id);
-            $query = $this->db->get('user');
+            $query = $this->db->get($this->table);
             return $query->row();
         }
 
         public function update($id,$data)
         {
             $this->db->where('id_user',$id);
-            $this->db->update('user',$data);
+            $this->db->update($this->table,$data);
         }
 
         public function delete($id)

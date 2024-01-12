@@ -343,8 +343,3 @@
                 </div>
               </div>
             </div>
-
-    <!--      template         -->
-<?php $this->load->view('layout/footer')?>
-
-        
