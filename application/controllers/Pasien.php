@@ -23,11 +23,11 @@ class Pasien extends CI_Controller {
 		if ($data_pasien != null) {
 			$data['data_pasien'] = $this->M_pasien->get_search_data($data_pasien);
 			$data['pencarian'] = $data_pasien;
-			$this->load->view('pasien', $data);
+			$this->load->view('pasien/pasien', $data);
 		} else {
 			$data['data_pasien'] = $this->M_pasien->get_data();
 			$data['pencarian'] = null;
-			$this->load->view('pasien', $data);
+			$this->load->view('pasien/pasien', $data);
 		}
 
 		$this->load->view('layout/footer');
@@ -38,7 +38,7 @@ class Pasien extends CI_Controller {
         $this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
-		$this->load->view('add_pasien');
+		$this->load->view('pasien/add');
 		$this->load->view('layout/footer');
     }
 
@@ -77,7 +77,7 @@ class Pasien extends CI_Controller {
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
-		$this->load->view('edit_pasien', $data);
+		$this->load->view('pasien/edit', $data);
 		$this->load->view('layout/footer');
 	}
 
@@ -92,7 +92,6 @@ class Pasien extends CI_Controller {
 		$pekerjaan		= $this->input->post('pekerjaan');
 
 		$data_pasien = array(
-			'id_pasien' 	=> null,
 			'no_kartu'		=> $no_kartu,
 			'nama_pasien'	=> $nama_pasien,
 			'jenis_kelamin'	=> $jenis_kelamin,
@@ -105,6 +104,13 @@ class Pasien extends CI_Controller {
 
 		$this->M_pasien->save_update_patient($id_pasien, $data_pasien);
 		redirect('pasien');
+	}
+
+	function detail_pasien($id_pasien) {
+		$data['data_pasien'] = $this->M_pasien->get_data_pasien($id_pasien);
+		$this->load->view('layout/header');
+		$this->load->view('pasien/detail', $data);
+		$this->load->view('layout/footer');
 	}
 
 }
