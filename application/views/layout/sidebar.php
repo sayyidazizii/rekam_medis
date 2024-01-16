@@ -62,6 +62,14 @@
               </a>
             </li>
             <li class="sidebar-item">
+              <a class="sidebar-link" href="<?php echo base_url('Payment') ?>" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-dollar"></i>
+                </span>
+                <span class="hide-menu">Pembayaran</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Report') ?>" aria-expanded="false">
                 <span>
                   <i class="ti ti-typography"></i>
