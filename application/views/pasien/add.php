@@ -21,10 +21,12 @@
                 <th>Jenis Kelamin</th>
                 <td>
                     <div class="my-2">
-                        <input class="form-check-input mx-2" type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-laki">
-                        <label for="laki_laki">Laki-laki</label>
-                        <input class="form-check-input mx-2" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
-                        <label for="perempuan">Perempuan</label>
+                        <div class="d-flex flex-nowrap">
+                            <input class="form-check-input mx-2" type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-laki">
+                            <label for="laki_laki">Laki-laki</label>
+                            <input class="form-check-input mx-2" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+                            <label for="perempuan">Perempuan</label>
+                        </div>
                     </div>
                 </td>
             </tr>
