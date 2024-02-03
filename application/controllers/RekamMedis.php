@@ -8,6 +8,10 @@ class RekamMedis extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('M_rekamMedis');
+		$this->load->model('M_tarif');
+		$this->load->model('M_obat');
+		$this->load->model('M_pasien');
+
 		if ($this->session->userdata('is_login') == false) {
 			redirect('login');
 		}
@@ -36,10 +40,19 @@ class RekamMedis extends CI_Controller
 
 	public function tambah_rekam_medis()
 	{
+		$data['data_pasien'] = $this->M_pasien->get_data();
+		$data['data_tarif'] = $this->M_tarif->get_data();
+		$data['data_obat'] = $this->M_obat->get_data();
+
+		// Setelah selesai, hapus session jika diperlukan
+		$this->session->unset_userdata('data_jasa');
+		$this->session->unset_userdata('data_obat');
+
+
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
-		$this->load->view('rekam_medis/add');
+		$this->load->view('rekam_medis/add',$data);
 		$this->load->view('layout/footer');
 	}
 
@@ -65,9 +78,51 @@ class RekamMedis extends CI_Controller
 			'data_state'	=> 0
 		);
 
-		$this->M_rekamMedis->save_patient($data_pasien);
-		redirect('RekamMedis');
+		 // Ambil data dari session
+		 $data_jasa = $this->session->userdata('data_jasa');
+		 $data_obat = $this->session->userdata('data_obat');
+		 var_dump($data_obat,$data_jasa);
+		 exit;
+
+
+		// $this->M_rekamMedis->save_patient($data_pasien);
+		// redirect('RekamMedis');
 	}
+
+	//buat session data jasa
+	public function nama_Pasien()
+	{
+		$idPasien = $this->input->post('id_pasien');
+		
+		$dataPasien = $this->M_pasien->get_data_pasien($idPasien);
+
+		echo $dataPasien->nama_pasien; // Kirim nama pasien sebagai respons
+	}
+
+	//buat session data jasa
+	public function simpan_data_jasa()
+	{
+		$selectedJasa = $this->input->post('selected_jasa');
+		$data_jasa = $this->session->userdata('data_jasa') ?? [];
+		$data_jasa[] = array(
+			'id_data_tarif' => $selectedJasa,
+		); 
+		$this->session->set_userdata('data_jasa', $data_jasa);
+	}
+	//buat session data obat
+	public function simpan_data_obat()
+	{
+		$selectedObat 	= $this->input->post('selected_obat');
+		$quantity 		= $this->input->post('quantity');
+
+		$data_obat = $this->session->userdata('data_obat') ?? [];
+		$data_obat[] = array(
+			'id_data_obat' 	=> $selectedObat,
+			'quantity'		=> $quantity
+		);
+		$this->session->set_userdata('data_obat', $data_obat);
+	}
+
 
 	function hapus_rekam_medis($id_rekam_medis)
 	{
