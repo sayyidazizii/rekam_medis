@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class RekamMedis extends CI_Controller
+class Payment extends CI_Controller
 {
 
 	public function __construct()
@@ -19,20 +19,20 @@ class RekamMedis extends CI_Controller
 
 	public function index()
 	{
-		$data_rekam_medis = $this->input->get('data_rekam_medis');
+		$data_payment = $this->input->get('data_payment');
 
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
 
-		if ($data_rekam_medis != null) {
-			$data['data_rekam_medis']   = $this->M_rekamMedis->get_search_data($data_rekam_medis);
-			$data['pencarian']          = $data_rekam_medis;
-			$this->load->view('rekam_medis/rekam_medis', $data);
+		if ($data_payment != null) {
+			$data['data_payment']       = $this->M_rekamMedis->get_search_data($data_payment);
+			$data['pencarian']          = $data_payment;
+			$this->load->view('Payment/payment', $data);
 		} else {
-			$data['data_rekam_medis']   = $this->M_rekamMedis->get_data();
+			$data['data_payment']       = $this->M_rekamMedis->get_data();
 			$data['pencarian']          = null;
-			$this->load->view('rekam_medis/rekam_medis', $data);
+			$this->load->view('Payment/payment', $data);
 		}
 
 		$this->load->view('layout/footer');

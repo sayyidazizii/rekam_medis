@@ -62,6 +62,7 @@ class M_rekamMedis extends CI_Model
         $this->db->from($this->table);
         $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
         $this->db->group_start(); // Mulai kelompok klausa OR
+        $this->db->like('rekam_medis.no_rm', $data_search);
         $this->db->like('pasien.no_kartu', $data_search);
         $this->db->or_like('pasien.nama_pasien', $data_search);
         $this->db->or_like('rekam_medis.amnesa', $data_search);
@@ -70,6 +71,14 @@ class M_rekamMedis extends CI_Model
         $this->db->or_like('rekam_medis.tindakan', $data_search);
         $this->db->group_end(); // Akhiri kelompok klausa OR
         return $this->db->get()->result();
+    }
+
+    function latest()
+    {
+        $this->db->select('rekam_medis.*');
+        $this->db->from($this->table);
+        $this->db->order_by('rekam_medis.id_rekam_medis', 'DESC');
+        return $this->db->get()->row();
     }
     
 
