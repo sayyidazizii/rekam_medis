@@ -7,7 +7,7 @@
         <div class="col">
             <form action="<?= base_url() ?>RekamMedis" method="get">
                 <div class="d-flex flex-nowrap input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Cari rekam medis" name="data_pasien" style="width: 100%; max-width: 300px;" value="<?php if ($pencarian != null) {echo $pencarian;} ?>">
+                    <input type="text" class="form-control" placeholder="Cari rekam medis" name="data_rekam_medis" style="width: 100%; max-width: 300px;" value="<?php if ($pencarian != null) {echo $pencarian;} ?>">
                     <button class="btn btn-secondary" type="submit"><i class="ti ti-search"></i></button>
                 </div>
             </form>
@@ -20,11 +20,10 @@
                     <th>No.</th>
                     <th>No. Kartu</th>
                     <th>Nama</th>
-                    <th>Alamat</th>
-                    <th>Jenis Kelamin</th>
-                    <th>No. HP</th>
-                    <th>Usia</th>
-                    <th>Pekerjaan</th>
+                    <th>Amnesa</th>
+                    <th>Diagnosa</th>
+                    <th>Tanggal</th>
+                    <th>Tindakan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -37,9 +36,9 @@
 
                     <tr>
                         <td><?= $no ?></td>
-                        <td><?= $rekam_medis->id_pasien ?></td>
+                        <td><?= $rekam_medis->no_kartu ?></td>
+                        <td><?= $rekam_medis->nama_pasien ?></td>
                         <td><?= $rekam_medis->amnesa ?></td>
-                        <td><?= $rekam_medis->alamat ?></td>
                         <td><?= $rekam_medis->diagnosa ?></td>
                         <td><?= $rekam_medis->tanggal_periksa ?></td>
                         <td><?= $rekam_medis->tindakan ?></td>

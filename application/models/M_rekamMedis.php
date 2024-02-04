@@ -6,12 +6,30 @@ class M_rekamMedis extends CI_Model
 
     function get_data()
     {
-        return $this->db->get($this->table)->result();
+        // return $this->db->get($this->table)->result();
+
+         // Lakukan join dengan tabel pasien
+         $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
+         $this->db->from($this->table);
+         $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
+         return $this->db->get()->result();
     }
 
-    function save_tax($data_rekam_medis)
+    function save($data_rekam_medis)
     {
         $this->db->insert($this->table, $data_rekam_medis);
+    }
+
+    //Jasa
+    function save_jasa($data_rekam_medis_tarif)
+    {
+        $this->db->insert('rekam_medis_tarif', $data_rekam_medis_tarif);
+    }
+
+    //obat
+    function save_obat($data_rekam_medis_obat)
+    {
+        $this->db->insert('rekam_medis_obat', $data_rekam_medis_obat);
     }
 
     function delete($id_rekam_medis)
@@ -20,24 +38,51 @@ class M_rekamMedis extends CI_Model
         $this->db->delete($this->table);
     }
 
+    function get_data_rekamMedis($id_rekam_medis)
+    {
+        // $this->db->where('id_rekam_medis', $id_rekam_medis);
+        // return $this->db->get($this->table)->row();
+
+        $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
+        $this->db->from($this->table);
+        $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
+        $this->db->where('id_rekam_medis', $id_rekam_medis);
+        return $this->db->get()->row();
+    }
+
+    function save_update($id_rekam_medis, $data_rekam_medis)
+    {
+        $this->db->where('id_rekam_medis', $id_rekam_medis);
+        $this->db->update($this->table, $data_rekam_medis);
+    }
+
+    function get_search_data($data_search)
+    {
+        $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
+        $this->db->from($this->table);
+        $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
+        $this->db->group_start(); // Mulai kelompok klausa OR
+        $this->db->like('pasien.no_kartu', $data_search);
+        $this->db->or_like('pasien.nama_pasien', $data_search);
+        $this->db->or_like('rekam_medis.amnesa', $data_search);
+        $this->db->or_like('rekam_medis.diagnosa', $data_search);
+        $this->db->or_like('rekam_medis.tanggal_periksa', $data_search);
+        $this->db->or_like('rekam_medis.tindakan', $data_search);
+        $this->db->group_end(); // Akhiri kelompok klausa OR
+        return $this->db->get()->result();
+    }
+    
+
+
+    function get_data_obat($id_rekam_medis)
+    {
+        $this->db->where('id_rekam_medis', $id_rekam_medis);
+        return $this->db->get('rekam_medis_obat')->result();
+    }
+
     function get_data_tarif($id_rekam_medis)
     {
         $this->db->where('id_rekam_medis', $id_rekam_medis);
-        return $this->db->get($this->table)->row();
-    }
-
-    function save_update_tax($id_rekam_medis, $data_tarif)
-    {
-        $this->db->where('id_rekam_medis', $id_rekam_medis);
-        $this->db->update($this->table, $data_tarif);
-    }
-
-    function get_search_data($data_tarif)
-    {
-        $this->db->like('nama_jasa', $data_tarif);
-        $this->db->or_like('harga', $data_tarif);
-        $this->db->or_like('keterangan', $data_tarif);
-
-        return $this->db->get($this->table)->result();
+        return $this->db->get('rekam_medis_tarif')->result();
     }
 }
