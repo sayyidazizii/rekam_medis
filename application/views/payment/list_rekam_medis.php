@@ -1,16 +1,18 @@
 <div class="container-fluid">
-    <h1>Data Rekam Medis</h1>
-    <div class="row">
-        <div class="col">
-            <a href="<?= base_url() ?>RekamMedis/tambah_rekam_medis" class="d-grip gap-2 btn btn-primary"><i class="ti ti-plus me-2"></i>Tambah Rekam Medis Baru</a>
-        </div>
-        <div class="col">
-                <div class="d-flex flex-nowrap input-group mb-3">
-                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                </div>
-        </div>
+    <h1>Pilih Rekam Medis</h1>
+    <div class="d-flex justify-content-end">
+        <a href="<?= base_url() ?>payment" class="btn btn-dark">Kembali</a>
     </div>
-    <div class="table-responsive">
+        <div class="container mt-2">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col">
+                    <div class="d-flex flex-nowrap input-group mb-3">
+                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                    </div>
+            </div>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -43,9 +45,7 @@
                         <td><?= $rekam_medis->tindakan ?></td>
                         <td>
                             <div class="d-flex flex-nowrap">
-                                <a href="<?= base_url() ?>rekamMedis/detail_rekam_medis/<?= $rekam_medis->id_rekam_medis ?>" target="_blank" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
-                                <a href="<?= base_url() ?>rekamMedis/ubah_rekam_medis/<?= $rekam_medis->id_rekam_medis ?>" class="btn btn-sm btn-warning"><i class="ti ti-pencil"></i></a>
-                                <a href="<?= base_url() ?>rekamMedis/hapus_rekam_medis/<?= $rekam_medis->id_rekam_medis ?>" class="btn btn-sm btn-danger"><i class="ti ti-trash"></i></a>
+                                <a href="<?= base_url() ?>Payment/tambah_pembayaran/<?= $rekam_medis->id_rekam_medis ?>" class="btn btn-sm btn-secondary"><i class="ti ti-plus"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -53,5 +53,5 @@
                 <?php endforeach ?>
             </tbody>
         </table>
-    </div>
+        </div>
 </div>
