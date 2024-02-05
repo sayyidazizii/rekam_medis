@@ -83,8 +83,6 @@ class M_rekamMedis extends CI_Model
         return $this->db->get()->row();
     }
     
-
-
     function get_data_obat($id_rekam_medis)
     {
         $this->db->where('id_rekam_medis', $id_rekam_medis);
