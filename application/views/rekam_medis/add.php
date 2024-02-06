@@ -20,7 +20,7 @@
                 </tr>
                 <tr>
                     <th>Nama Pasien</th>
-                    <td><input type="text" name="nama_pasien" id="nama_pasien" class="form-control my-1"></td>
+                    <td><input type="text" name="nama_pasien" id="nama_pasien" class="form-control my-1" readonly></td>
                 </tr>
                 <tr>
                     <th>Tanggal Pemeriksaan</th>

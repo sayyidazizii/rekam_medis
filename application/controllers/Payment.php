@@ -140,7 +140,7 @@ class Payment extends CI_Controller
 	// edit
 	function ubah_pembayaran($id_pembayaran)
 	{
-		$data['data_pembayaran'] 		= $this->M_payment->get_data_pembayaran($id_pembayaran);
+  		$data['data_pembayaran'] 		= $this->M_payment->get_data_pembayaran($id_pembayaran);
 
 
 		$data['rekam_medis']   			= $this->M_rekamMedis->get_data_rekamMedis($data['data_pembayaran']->id_rekam_medis);

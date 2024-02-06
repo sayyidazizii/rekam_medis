@@ -22,6 +22,7 @@
                     <th>Diagnosa</th>
                     <th>Tanggal</th>
                     <th>Tindakan</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -41,6 +42,11 @@
                         <td><?= $rekam_medis->diagnosa ?></td>
                         <td><?= $rekam_medis->tanggal_periksa ?></td>
                         <td><?= $rekam_medis->tindakan ?></td>
+                        <?php if($rekam_medis->status_bayar == 1){ ?>
+                            <td>Dibayar</td>
+                        <?php }else{?>
+                            <td>Belum Dibayar</td>
+                        <?php }?>
                         <td>
                             <div class="d-flex flex-nowrap">
                                 <a href="<?= base_url() ?>rekamMedis/detail_rekam_medis/<?= $rekam_medis->id_rekam_medis ?>" target="_blank" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
