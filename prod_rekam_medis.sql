@@ -183,7 +183,7 @@ CREATE TABLE `user` (
 /*Data for the table `user` */
 
 insert  into `user`(`id_user`,`username`,`password`,`nama`,`level`) values 
-(1,'Sayyid','25d55ad283aa400af464c76d713c07ad','Sayyid','1');
+(1,'Administrator','25d55ad283aa400af464c76d713c07ad','Sayyid','1');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
