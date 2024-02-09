@@ -33,7 +33,7 @@ CREATE TABLE `obat` (
 /*Data for the table `obat` */
 
 insert  into `obat`(`id_data_obat`,`nama_obat`,`kategori`,`stok`,`harga`,`keterangan`) values 
-(1,'Paracetamol','Obat Sedang','87','6000','Obat penurun panas dan pereda nyeri'),
+(1,'Paracetamol','Obat Sedang','82','6000','Obat penurun panas dan pereda nyeri'),
 (3,'Promag','Obat Ringan','90','4000','Obat untuk meredakan sakit pada lambung/perut');
 
 /*Table structure for table `pasien` */
@@ -80,7 +80,7 @@ CREATE TABLE `pembayaran` (
 
 insert  into `pembayaran`(`id_pembayaran`,`id_rekam_medis`,`id_pasien`,`tanggal_pembayaran`,`subtotal`,`bayar`,`kembalian`,`data_state`) values 
 (1,3,1,'2024-02-05',110000,100000,10000,0),
-(5,1,1,'2024-02-05',110000,110000,0,1);
+(5,1,1,'2024-02-05',110000,110000,0,0);
 
 /*Table structure for table `rekam_medis` */
 
@@ -98,14 +98,15 @@ CREATE TABLE `rekam_medis` (
   `data_state` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_rekam_medis`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `rekam_medis` */
 
 insert  into `rekam_medis`(`id_rekam_medis`,`no_rm`,`id_pasien`,`amnesa`,`diagnosa`,`tanggal_periksa`,`tindakan`,`status_bayar`,`data_state`,`created_at`) values 
 (1,'RM0001',1,'sakit gigi','sakit gigi','2024-02-04','cabut gigi',1,0,NULL),
 (2,'RM0002',3,'sakit gigi','sakit gigi','2024-02-04','cabut',0,0,NULL),
-(3,'RM0003',1,'sakit gigi','sakit ','2024-02-05','cabut gigi',1,0,NULL);
+(3,'RM0003',1,'sakit gigi','sakit ','2024-02-05','cabut gigi',1,0,NULL),
+(4,'RM0004',2,'sakit gigi','sakit gigi','2024-02-07','cabut gigi',0,0,NULL);
 
 /*Table structure for table `rekam_medis_obat` */
 
@@ -118,7 +119,7 @@ CREATE TABLE `rekam_medis_obat` (
   `quantity` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_rekam_medis_obat`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `rekam_medis_obat` */
 
@@ -127,7 +128,8 @@ insert  into `rekam_medis_obat`(`id_rekam_medis_obat`,`id_rekam_medis`,`id_data_
 (2,1,3,5,NULL),
 (3,2,1,3,NULL),
 (4,3,3,5,NULL),
-(5,3,1,5,NULL);
+(5,3,1,5,NULL),
+(6,4,1,5,NULL);
 
 /*Table structure for table `rekam_medis_tarif` */
 
@@ -139,14 +141,15 @@ CREATE TABLE `rekam_medis_tarif` (
   `id_data_tarif` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_rekam_medis_tarif`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `rekam_medis_tarif` */
 
 insert  into `rekam_medis_tarif`(`id_rekam_medis_tarif`,`id_rekam_medis`,`id_data_tarif`,`created_at`) values 
 (1,1,3,NULL),
 (2,2,3,NULL),
-(3,3,3,NULL);
+(3,3,3,NULL),
+(4,4,2,NULL);
 
 /*Table structure for table `tarif` */
 
