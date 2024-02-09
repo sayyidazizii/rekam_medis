@@ -12,7 +12,9 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"tecnickcom/tcpdf": "*"
+		"tecnickcom/tcpdf": "*",
+		"dompdf/dompdf": "^2.0",
+		"phpoffice/phpspreadsheet": "^2.0"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

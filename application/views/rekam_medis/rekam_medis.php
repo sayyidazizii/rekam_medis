@@ -49,7 +49,7 @@
                         <?php }?>
                         <td>
                             <div class="d-flex flex-nowrap">
-                                <a href="<?= base_url() ?>rekamMedis/detail_rekam_medis/<?= $rekam_medis->id_rekam_medis ?>" target="_blank" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
+                                <a href="<?= base_url() ?>rekamMedis/detail_rekam_medis/<?= $rekam_medis->id_rekam_medis ?>" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
                                 <a href="<?= base_url() ?>rekamMedis/ubah_rekam_medis/<?= $rekam_medis->id_rekam_medis ?>" class="btn btn-sm btn-warning"><i class="ti ti-pencil"></i></a>
                                 <a href="<?= base_url() ?>rekamMedis/hapus_rekam_medis/<?= $rekam_medis->id_rekam_medis ?>" class="btn btn-sm btn-danger"><i class="ti ti-trash"></i></a>
                             </div>

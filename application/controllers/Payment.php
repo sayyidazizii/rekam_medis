@@ -210,11 +210,49 @@ class Payment extends CI_Controller
 		redirect('Payment');
 	}
 
-	function detail_rekam_medis($id_pasien)
+	function detail_pembayaran($id_pembayaran)
 	{
-		$data['data_pasien'] = $this->M_rekamMedis->get_data_pasien($id_pasien);
+		$data['data_pembayaran'] 		= $this->M_payment->get_data_pembayaran($id_pembayaran);
+
+
+		$data['rekam_medis']   			= $this->M_rekamMedis->get_data_rekamMedis($data['data_pembayaran']->id_rekam_medis);
+		$data['data_rekam_medis'] 		= $this->M_rekamMedis->get_data_rekamMedis($data['data_pembayaran']->id_rekam_medis);
+		$data['data_rekam_medis_obat'] 	= $this->M_rekamMedis->get_data_obat($data['data_pembayaran']->id_rekam_medis);
+		$data['data_rekam_medis_tarif'] = $this->M_rekamMedis->get_data_tarif($data['data_pembayaran']->id_rekam_medis);
+
+		// Mendapatkan data obat dari model M_obat
+		$data['data_obat'] = $this->M_obat->get_data();
+		// Simpan data obat dalam bentuk array asosiatif ID obat => Nama obat
+		$obatArray = array();
+		$hargaObat = array();
+
+		foreach ($data['data_obat'] as $obat) {
+			$obatArray[$obat->id_data_obat] = $obat->nama_obat;
+			$hargaObat[$obat->id_data_obat] = $obat->harga;
+		}
+		// Kirimkan data obat ke view
+		$data['obatArray'] = $obatArray;
+		$data['hargaObat'] = $hargaObat;
+
+		// Mendapatkan data tarif dari model M_Tarif
+		$data['data_tarif'] = $this->M_tarif->get_data();
+		// Simpan data tarif dalam bentuk array asosiatif ID tarif => Nama tarif
+		$tarifArray = array();
+		$hargaTarif = array();
+		foreach ($data['data_tarif'] as $tarif) {
+			$tarifArray[$tarif->id_data_tarif] = $tarif->nama_jasa;
+			$hargaTarif[$tarif->id_data_tarif] = $tarif->harga;
+
+		}
+		// Kirimkan data tarif ke view
+		$data['tarifArray'] = $tarifArray;
+		$data['hargaTarif'] = $hargaTarif;
+
+
 		$this->load->view('layout/header');
-		$this->load->view('pasien/detail', $data);
+		$this->load->view('layout/sidebar');
+		$this->load->view('layout/navbar');
+		$this->load->view('payment/detail',$data);
 		$this->load->view('layout/footer');
 	}
 }

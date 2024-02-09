@@ -41,7 +41,7 @@
                         <td><?= $pembayaran->kembalian ?></td>
                         <td>
                             <div class="d-flex flex-nowrap">
-                                <a href="<?= base_url() ?>Payment/detail_pembayaran/<?= $pembayaran->id_pembayaran ?>" target="_blank" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
+                                <a href="<?= base_url() ?>Payment/detail_pembayaran/<?= $pembayaran->id_pembayaran ?>" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
                                 <a href="<?= base_url() ?>Payment/ubah_pembayaran/<?= $pembayaran->id_pembayaran ?>" class="btn btn-sm btn-warning"><i class="ti ti-pencil"></i></a>
                                 <a href="<?= base_url() ?>Payment/hapus_pembayaran/<?= $pembayaran->id_pembayaran ?>" class="btn btn-sm btn-danger"><i class="ti ti-trash"></i></a>
                             </div>

@@ -68,7 +68,7 @@
             </tbody>
         </table>
         <div class="d-flex justify-content-end">
-            <a href="<?= base_url() ?>Report/print_rekam_medis?start_date=<?= $start_date ?>&end_date=<?= $end_date ?>" class="btn btn-primary">Export <i class="ti ti-download"></i></a>
+            <a href="<?= base_url() ?>Report/export_rekam_medis?start_date=<?= $start_date ?>&end_date=<?= $end_date ?>" class="btn btn-primary">Export <i class="ti ti-download"></i></a>
             <a href="<?= base_url() ?>Report/print_rekam_medis?start_date=<?= $start_date ?>&end_date=<?= $end_date ?>" class="btn btn-primary">Cetak <i class="ti ti-file"></i></a>
         </div>
     </div>

@@ -42,7 +42,6 @@
                         <td><?= $obat->keterangan ?></td>
                         <td>
                             <div class="d-flex flex-nowrap">
-                                <a href="#" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
                                 <a href="<?= base_url() ?>obat/ubah_obat/<?= $obat->id_data_obat ?>" class="btn btn-sm btn-warning"><i class="ti ti-pencil"></i></a>
                                 <a href="<?= base_url() ?>obat/hapus_obat/<?= $obat->id_data_obat ?>" class="btn btn-sm btn-danger"><i class="ti ti-trash"></i></a>
                             </div>

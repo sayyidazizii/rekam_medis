@@ -253,11 +253,35 @@ class RekamMedis extends CI_Controller
 		redirect('rekamMedis');
 	}
 
-	function detail_rekam_medis($id_pasien)
+	function detail_rekam_medis($id_rekam_medis)
 	{
-		$data['data_pasien'] = $this->M_rekamMedis->get_data_pasien($id_pasien);
+		$data['data_rekam_medis'] = $this->M_rekamMedis->get_data_rekamMedis($id_rekam_medis);
+		$data['data_rekam_medis_obat'] = $this->M_rekamMedis->get_data_obat($id_rekam_medis);
+		$data['data_rekam_medis_tarif'] = $this->M_rekamMedis->get_data_tarif($id_rekam_medis);
+
+		// Mendapatkan data obat dari model M_obat
+		$data['data_obat'] = $this->M_obat->get_data();
+		// Simpan data obat dalam bentuk array asosiatif ID obat => Nama obat
+		$obatArray = array();
+		foreach ($data['data_obat'] as $obat) {
+			$obatArray[$obat->id_data_obat] = $obat->nama_obat;
+		}
+		// Kirimkan data obat ke view
+		$data['obatArray'] = $obatArray;
+
+		// Mendapatkan data tarif dari model M_Tarif
+		$data['data_tarif'] = $this->M_tarif->get_data();
+		// Simpan data tarif dalam bentuk array asosiatif ID tarif => Nama tarif
+		$tarifArray = array();
+		foreach ($data['data_tarif'] as $tarif) {
+			$tarifArray[$tarif->id_data_tarif] = $tarif->nama_jasa;
+		}
+		// Kirimkan data tarif ke view
+		$data['tarifArray'] = $tarifArray;
+
+
 		$this->load->view('layout/header');
-		$this->load->view('pasien/detail', $data);
+		$this->load->view('rekam_medis/detail', $data);
 		$this->load->view('layout/footer');
 	}
 }

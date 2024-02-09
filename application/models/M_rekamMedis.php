@@ -95,6 +95,7 @@ class M_rekamMedis extends CI_Model
         return $this->db->get('rekam_medis_tarif')->result();
     }
 
+
     public function report($start_date,$end_date)
     {
          $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
