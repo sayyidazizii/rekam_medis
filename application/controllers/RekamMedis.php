@@ -56,7 +56,7 @@ class RekamMedis extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
-	function simpan_rekam_medis()
+	public function simpan_rekam_medis()
 	{
 		$id_pasien 			= $this->input->post('id_pasien');
 		$amnesa 			= $this->input->post('amnesa');
@@ -71,6 +71,7 @@ class RekamMedis extends CI_Controller
 			'diagnosa'			=> $diagnosa,
 			'tanggal_periksa'	=> $tanggal_periksa,
 			'tindakan'			=> $tindakan,
+			'status_bayar'		=> 0,
 			'data_state'		=> 0,
 		);
 		$this->M_rekamMedis->save($data);

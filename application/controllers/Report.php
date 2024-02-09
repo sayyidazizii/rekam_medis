@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-use Dompdf\Dompdf;
 class Report extends CI_Controller
 {
 
@@ -39,74 +38,57 @@ class Report extends CI_Controller
 		$this->load->view('layout/footer');
 	}
 
-	public function rekam_medis_report(){
+
+	public function rekam_medis_report()
+	{
+		$start_date = $this->input->get('start_date');
+		$end_date 	= $this->input->get('end_date');
+
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
+		
+		if ($start_date != null) {
+			$data['data_rekam_medis'] 			= $this->M_rekamMedis->report($start_date,$end_date);
+			$data['start_date'] 	= $start_date;
+			$data['end_date'] 		= $end_date;
 
-		$this->load->view('Laporan/Rekam_Medis/laporan_rekam_medis');
+			$this->load->view('Laporan/Rekam_Medis/laporan_rekam_medis', $data);
+		} else {
+			$data['data_rekam_medis'] 	= $this->M_rekamMedis->get_data();
+			$data['start_date'] 	= null;
+			$data['end_date'] 		= null;
+
+			$this->load->view('Laporan/Rekam_Medis/laporan_rekam_medis', $data);
+		}
 
 		$this->load->view('layout/footer');
 	}
 
 	public function payment_report(){
+		$start_date = $this->input->get('start_date');
+		$end_date 	= $this->input->get('end_date');
+
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
+		
+		if ($start_date != null) {
+			$data['data_payment'] 			= $this->M_payment->report($start_date,$end_date);
+			$data['start_date'] 	= $start_date;
+			$data['end_date'] 		= $end_date;
 
-		$this->load->view('Laporan/Payment/laporan_pembayaran');
-	
+			$this->load->view('Laporan/Payment/laporan_pembayaran', $data);
+		} else {
+			$data['data_payment'] 	= $this->M_payment->get_data();
+			$data['start_date'] 	= null;
+			$data['end_date'] 		= null;
+
+			$this->load->view('Laporan/Payment/laporan_pembayaran', $data);
+		}
+
 		$this->load->view('layout/footer');
 	}
 
-	public function print_rekam_medis() {
-        // Load Dompdf library
-        require_once APPPATH.'libraries/dompdf/autoload.inc.php';
-        $dompdf = new Dompdf();
-        
-        // Load HTML content
-        $data['content'] = '<h1>Hello, World!</h1>';
-        
-        // Load HTML to Dompdf
-        $dompdf->loadHtml($this->load->view('Laporan/Rekam_Medis/pdf_view', $data, true));
-        
-        // Set paper size and orientation
-        $dompdf->setPaper('A4', 'portrait');
-        
-        // Render the HTML as PDF
-        $dompdf->render();
-        
-        // Output the generated PDF content
-        $pdf_content = $dompdf->output();
-        
-        // Load the PDF content into a view for preview
-        $data['pdf_content'] = $pdf_content;
-        $this->load->view('Laporan/Rekam_Medis/pdf_preview', $data);
-    }
-
-	public function print_payment() {
-        // Load Dompdf library
-        require_once APPPATH.'libraries/dompdf/autoload.inc.php';
-        $dompdf = new Dompdf();
-        
-        // Load HTML content
-        $data['content'] = '<h1>Hello, World!</h1>';
-        
-        // Load HTML to Dompdf
-        $dompdf->loadHtml($this->load->view('Laporan/Payment/pdf_view', $data, true));
-        
-        // Set paper size and orientation
-        $dompdf->setPaper('A4', 'portrait');
-        
-        // Render the HTML as PDF
-        $dompdf->render();
-        
-        // Output the generated PDF content
-        $pdf_content = $dompdf->output();
-        
-        // Load the PDF content into a view for preview
-        $data['pdf_content'] = $pdf_content;
-        $this->load->view('Laporan/Payment/pdf_preview', $data);
-    }
-
+	
 }

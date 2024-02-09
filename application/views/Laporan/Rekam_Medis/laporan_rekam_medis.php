@@ -3,17 +3,18 @@
     <div class="d-flex justify-content-end">
         <a href="<?= base_url() ?>Report" class="btn btn-dark">Kembali</a>
     </div>
+    <form action="<?= base_url() ?>Report/rekam_medis_report" method="get">
     <div class="row">
         <div class="col">
-            <label for="startdate" class="form-label">Tanggal Awal</label>
+            <label for="start_date" class="form-label">Tanggal Awal</label>
             <div class="d-flex flex-nowrap input-group mb-3">
-                <input class="form-control" id="startdate" type="date">
+                <input class="form-control" name="start_date" id="start_date" value="<?= $start_date ?>" type="date">
             </div>
         </div>
         <div class="col">
-            <label for="enddate" class="form-label">Tanggal Akhir</label>
+            <label for="end_date" class="form-label">Tanggal Akhir</label>
                 <div class="d-flex flex-nowrap input-group mb-3">
-                    <input class="form-control" id="enddate" type="date">
+                    <input class="form-control" name="end_date" id="end_date" value="<?= $end_date ?>" type="date">
                 </div>
         </div>
         <div class="col">
@@ -23,6 +24,8 @@
                 </div>
         </div>
     </div>
+    </form>
+
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -36,13 +39,37 @@
                     <th>Tanggal</th>
                     <th>Tindakan</th>
                     <th>Status</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody id="myTable">
-               
+            <?php
+                $no = 0;
+                foreach ($data_rekam_medis as $rekam_medis) :
+                    $no++;
+                ?>
+
+                    <tr>
+                        <td><?= $no ?></td>
+                        <td><?= $rekam_medis->no_rm ?></td>
+                        <td><?= $rekam_medis->no_kartu ?></td>
+                        <td><?= $rekam_medis->nama_pasien ?></td>
+                        <td><?= $rekam_medis->amnesa ?></td>
+                        <td><?= $rekam_medis->diagnosa ?></td>
+                        <td><?= $rekam_medis->tanggal_periksa ?></td>
+                        <td><?= $rekam_medis->tindakan ?></td>
+                        <?php if($rekam_medis->status_bayar == 1){ ?>
+                            <td>Dibayar</td>
+                        <?php }else{?>
+                            <td>Belum Dibayar</td>
+                        <?php }?>
+                    </tr>
+
+                <?php endforeach ?>
             </tbody>
         </table>
-        <a href="<?= base_url() ?>Report/print_rekam_medis" class="btn btn-primary">Cetak</a>
+        <div class="d-flex justify-content-end">
+            <a href="<?= base_url() ?>Report/print_rekam_medis?start_date=<?= $start_date ?>&end_date=<?= $end_date ?>" class="btn btn-primary">Export <i class="ti ti-download"></i></a>
+            <a href="<?= base_url() ?>Report/print_rekam_medis?start_date=<?= $start_date ?>&end_date=<?= $end_date ?>" class="btn btn-primary">Cetak <i class="ti ti-file"></i></a>
+        </div>
     </div>
 </div>

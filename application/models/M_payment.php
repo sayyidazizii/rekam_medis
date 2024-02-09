@@ -67,4 +67,17 @@ class M_payment extends CI_Model
 
         return $this->db->get($this->table)->result();
     }
+
+    //report
+    public function report($start_date,$end_date)
+    {
+        $this->db->select('pembayaran.*, pasien.nama_pasien, pasien.no_kartu');
+        $this->db->from($this->table);
+        $this->db->join('pasien', 'pembayaran.id_pasien = pasien.id_pasien', 'left');
+        $this->db->where('pembayaran.data_state = 0');
+        $this->db->where('pembayaran.tanggal_pembayaran >=',$start_date);
+        $this->db->where('pembayaran.tanggal_pembayaran <=',$end_date);
+        return $this->db->get()->result();
+    }
+
 }

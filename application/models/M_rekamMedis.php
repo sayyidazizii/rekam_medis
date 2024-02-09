@@ -94,4 +94,14 @@ class M_rekamMedis extends CI_Model
         $this->db->where('id_rekam_medis', $id_rekam_medis);
         return $this->db->get('rekam_medis_tarif')->result();
     }
+
+    public function report($start_date,$end_date)
+    {
+         $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
+         $this->db->from($this->table);
+         $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
+         $this->db->where('rekam_medis.tanggal_periksa >=', $start_date);
+         $this->db->where('rekam_medis.tanggal_periksa <=', $end_date);
+        return $this->db->get()->result();
+    }
 }
