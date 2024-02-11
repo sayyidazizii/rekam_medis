@@ -1,70 +1,80 @@
           <div class="container-fluid">
             <!--  Row 1 -->
-                <div class="row">
-                  <div class="col">
-                    <!-- Yearly Breakup -->
-                    <div class="card overflow-hidden">
-                      <div class="card-body p-4">
-                        <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
-                        <div class="row align-items-center">
-                          <div class="col-8">
-                            <h4 class="fw-semibold mb-3">$36,358</h4>
-                            <div class="d-flex align-items-center mb-3">
-                              <span
-                                class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                                <i class="ti ti-arrow-up-left text-success"></i>
-                              </span>
-                              <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                              <p class="fs-3 mb-0">last year</p>
-                            </div>
-                            <div class="d-flex align-items-center">
-                              <div class="me-4">
-                                <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                                <span class="fs-2">2023</span>
-                              </div>
-                              <div>
-                                <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                                <span class="fs-2">2023</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div class="d-flex justify-content-center">
-                              <div id="breakup"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+            <div class="row">
+
+            <?php if($_SESSION['level'] == 1){?>
+            <div class="col-sm-6 col-xl-4">
+              <div class="card overflow-hidden rounded-2">
+                <div class="card-body pt-5 p-4">
+                  <h6 class="fw-semibold fs-4"> 
+                  <div class="row">
+                    <div class="col">
+                    <i class="fas fa-user fs-8"></i>    
                     </div>
-                  </div>
-                  <div class="col">
-                    <!-- Monthly Earnings -->
-                    <div class="card">
-                      <div class="card-body">
-                        <div class="row alig n-items-start">
-                          <div class="col-8">
-                            <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
-                            <h4 class="fw-semibold mb-3">$6,820</h4>
-                            <div class="d-flex align-items-center pb-1">
-                              <span
-                                class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
-                                <i class="ti ti-arrow-down-right text-danger"></i>
-                              </span>
-                              <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                              <p class="fs-3 mb-0">last year</p>
-                            </div>
-                          </div>
-                          <div class="col-4">
-                            <div class="d-flex justify-content-end">
-                              <div
-                                class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
-                                <i class="ti ti-currency-dollar fs-6"></i>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                    <div class="col">
+                    Total Pasien
+                    <h6 class="fw-semibold fs-4 mb-0">
+                    <?= $user ?>  
+                      <span class="ms-2 fw-normal text-muted fs-3">
+                      </span>
+                    </h6>
                       </div>
-                      <div id="earning"></div>
-                    </div>
-                  </div>
+                  </div>         
+                  </h6>
                 </div>
+              </div>
+            </div>
+            <?php } ?>
+            <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 3){?>
+          <div class="col-sm-6 col-xl-4">
+            <div class="card overflow-hidden rounded-2">
+              <div class="card-body pt-5 p-4">
+                <h6 class="fw-semibold fs-4">
+                <div class="row">
+                    <div class="col">
+                      <i class="fas fa-shopping-bag fs-8"></i>             
+                    </div>
+                    <div class="col">
+                    Data Obat
+                      <h6 class="fw-semibold fs-4 mb-0">
+                      <?= $obat ?>
+                        <span class="ms-2 fw-normal text-muted fs-3">
+                        </span>
+                      </h6>
+                    </div>
+                </div>  
+                  </h6>
+              </div>
+            </div>
+          </div>
+          <?php } ?>
+          <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){?>
+          <div class="col-sm-6 col-xl-4">
+            <div class="card overflow-hidden rounded-2">
+              <div class="card-body pt-5 p-4">
+                <h6 class="fw-semibold fs-4">
+                    <div class="row">
+                      <div class="col">
+                        <i class="fas fa-hospital fs-8"></i>             
+                      </div>
+                      <div class="col">
+                      Total Rekam Medis
+                        <h6 class="fw-semibold fs-4 mb-0">
+                        <?= $rekam_medis ?>
+                          <span class="ms-2 fw-normal text-muted fs-3">
+                          </span>
+                        </h6>
+                      </div>
+                    </div>  
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php } ?>
+          <div class="container">
+            <h6>Data Rekam Medis</h6>
+          <canvas id="myChart" style="width: 100%; max-width:300px; margin-left:auto; margin-right:auto;"></canvas>
+          </div>
+
+        </div>

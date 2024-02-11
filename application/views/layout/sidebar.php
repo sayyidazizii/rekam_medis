@@ -18,7 +18,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="<?php echo base_url() ?>" aria-expanded="false">
+              <a class="sidebar-link" href="<?php echo base_url('Home') ?>" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -29,6 +29,7 @@
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Menu</span>
             </li>
+            <?php if($_SESSION['level'] == 1 ){?>
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Pasien') ?>" aria-expanded="false">
                 <span>
@@ -45,6 +46,8 @@
                 <span class="hide-menu">Data Tarif</span>
               </a>
             </li>
+            <?php } ?>
+            <?php if($_SESSION['level'] == 3){?>
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Obat') ?>" aria-expanded="false">
                 <span>
@@ -53,6 +56,8 @@
                 <span class="hide-menu">Data Obat</span>
               </a>
             </li>
+            <?php } ?>
+            <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){?>
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('RekamMedis') ?>" aria-expanded="false">
                 <span>
@@ -61,6 +66,7 @@
                 <span class="hide-menu">Rekam Medis</span>
               </a>
             </li>
+            <?php if($_SESSION['level'] == 1){?>
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Payment') ?>" aria-expanded="false">
                 <span>
@@ -69,6 +75,7 @@
                 <span class="hide-menu">Pembayaran</span>
               </a>
             </li>
+            <?php } ?>
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Report') ?>" aria-expanded="false">
                 <span>
@@ -77,6 +84,17 @@
                 <span class="hide-menu">Laporan</span>
               </a>
             </li>
+            <?php } ?>
+            <?php if($_SESSION['level'] == 0  ){?>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="<?php echo base_url('User') ?>" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user"></i>
+                </span>
+                <span class="hide-menu">User</span>
+              </a>
+            </li>
+            <?php } ?>
           </ul>
         </nav>
         <!-- End Sidebar navigation -->

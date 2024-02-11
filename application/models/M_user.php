@@ -41,8 +41,9 @@
         public function delete($id)
         {
             $this->db->where('id_user',$id);
-            $this->db->delete('useer');
+            $this->db->update($this->table,$data);
         }
+
     }
     
 ?>

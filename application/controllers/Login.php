@@ -17,9 +17,9 @@ class Login extends CI_Controller {
 			if ($level == 1){
 				redirect('Home');
 			} else if ($level == 2){
-				echo "Ini adalah halaman apoteker";
+				redirect('Home');
 			} else {
-				echo "Ini adalah halaman dokter";
+				redirect('Home');
 			}
 		}
 
