@@ -74,7 +74,48 @@
           <?php } ?>
           <div class="container">
             <h6>Data Rekam Medis</h6>
-          <canvas id="myChart" style="width: 100%; max-width:300px; margin-left:auto; margin-right:auto;"></canvas>
+            <canvas id="myChart" style="width: 100%; max-width:600px; margin-left:auto; margin-right:auto;"></canvas>
+          <!-- <canvas id="pieChart" style="width: 100%; max-width: 600px; height: auto;"></canvas> -->
+
           </div>
 
         </div>
+        
+        <script>
+
+        var labels = [];
+        var data = [];
+
+        <?php foreach($jumlah_rekam_medis_per_hari as $rm): ?>
+            labels.push('<?= $rm->tanggal_periksa ?>');
+            data.push(<?= $rm->jumlah_rekam_medis ?>);
+        <?php endforeach; ?>
+
+          // var xValues = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"];
+          // var yValues = [55, 49, 44, 24, 15];
+          var barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+          ];
+
+          new Chart("myChart", {
+            type: "pie",
+            data: {
+              labels: labels,
+              datasets: [{
+                backgroundColor: barColors,
+                data: data
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "rekam medis"
+              }
+            }
+          });
+        </script>
+        

@@ -105,4 +105,21 @@ class M_rekamMedis extends CI_Model
          $this->db->where('rekam_medis.tanggal_periksa <=', $end_date);
         return $this->db->get()->result();
     }
+
+    public function count_rekam_medis_per_day()
+    {
+        // Dapatkan tanggal awal dan akhir dari bulan ini
+        $start_date = date('Y-m-01');
+        $end_date = date('Y-m-t');
+
+        // Query untuk menghitung jumlah rekam medis per hari pada bulan ini
+        $this->db->select('tanggal_periksa, COUNT(*) as jumlah_rekam_medis');
+        $this->db->from('rekam_medis');
+        $this->db->where('tanggal_periksa >=', $start_date);
+        $this->db->where('tanggal_periksa <=', $end_date);
+        $this->db->group_by('tanggal_periksa');
+        $query = $this->db->get();
+
+        return $query->result();
+    }
 }
