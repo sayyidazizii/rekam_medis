@@ -12,7 +12,7 @@ MySQL - 8.0.30 : Database - prod_rekam_medis
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`prod_rekam_medis` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`prod_rekam_medis` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE `prod_rekam_medis`;
 
@@ -28,7 +28,7 @@ CREATE TABLE `obat` (
   `harga` varchar(20) NOT NULL,
   `keterangan` varchar(50) NOT NULL,
   PRIMARY KEY (`id_data_obat`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `obat` */
 
@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS `pasien`;
 CREATE TABLE `pasien` (
   `id_pasien` int NOT NULL AUTO_INCREMENT,
   `no_kartu` varchar(255) DEFAULT NULL,
-  `nama_pasien` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `nama_pasien` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `jenis_kelamin` varchar(255) DEFAULT NULL,
   `umur` varchar(255) DEFAULT NULL,
   `no_telepon` varchar(255) DEFAULT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `pasien` (
   `pekerjaan` varchar(255) DEFAULT NULL,
   `data_state` int DEFAULT NULL,
   PRIMARY KEY (`id_pasien`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `pasien` */
 
@@ -74,7 +74,7 @@ CREATE TABLE `pembayaran` (
   `kembalian` decimal(10,0) DEFAULT NULL,
   `data_state` int DEFAULT '0',
   PRIMARY KEY (`id_pembayaran`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `pembayaran` */
 
@@ -98,7 +98,7 @@ CREATE TABLE `rekam_medis` (
   `data_state` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_rekam_medis`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rekam_medis` */
 
@@ -119,7 +119,7 @@ CREATE TABLE `rekam_medis_obat` (
   `quantity` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_rekam_medis_obat`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rekam_medis_obat` */
 
@@ -141,7 +141,7 @@ CREATE TABLE `rekam_medis_tarif` (
   `id_data_tarif` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_rekam_medis_tarif`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `rekam_medis_tarif` */
 
@@ -161,7 +161,7 @@ CREATE TABLE `tarif` (
   `harga` varchar(255) NOT NULL,
   `keterangan` varchar(255) NOT NULL,
   PRIMARY KEY (`id_data_tarif`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `tarif` */
 
@@ -182,7 +182,7 @@ CREATE TABLE `user` (
   `level` enum('1','2','3') DEFAULT NULL,
   `data_state` int DEFAULT '0',
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
