@@ -7,15 +7,15 @@
         <table style="width: 100%">
             <tr>
                 <th>Nama Jasa</th>
-                <td><input type="text" name="nama_jasa" class="form-control my-2"></td>
+                <td><input type="text" name="nama_jasa" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Harga</th>
-                <td><input type="number" name="harga" class="form-control my-2"></td>
+                <td><input type="number" name="harga" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Keterangan</th>
-                <td><input type="text" name="keterangan" class="form-control my-2"></td>
+                <td><input type="text" name="keterangan" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th></th>

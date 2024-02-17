@@ -8,15 +8,15 @@
             <input type="hidden" name="id_pasien" value="<?= $data_pasien->id_pasien ?>">
             <tr>
                 <th>Nomor Kartu</th>
-                <td><input type="text" name="no_kartu" id="no_kartu" class="form-control my-2" value="<?= $data_pasien->no_kartu ?>"></td>
+                <td><input type="text" name="no_kartu" id="no_kartu" class="form-control my-2 border-dark" value="<?= $data_pasien->no_kartu ?>"></td>
             </tr>
             <tr>
                 <th>Nama</th>
-                <td><input type="text" name="nama_pasien" id="nama" class="form-control my-2" value="<?= $data_pasien->nama_pasien ?>"></td>
+                <td><input type="text" name="nama_pasien" id="nama" class="form-control my-2 border-dark" value="<?= $data_pasien->nama_pasien ?>"></td>
             </tr>
             <tr>
                 <th>Alamat</th>
-                <td><input type="text" name="alamat" id="alamat" class="form-control my-2" value="<?= $data_pasien->alamat ?>"></td>
+                <td><input type="text" name="alamat" id="alamat" class="form-control my-2 border-dark" value="<?= $data_pasien->alamat ?>"></td>
             </tr>
             <tr>
                 <th>Jenis Kelamin</th>
@@ -33,15 +33,15 @@
             </tr>
             <tr>
                 <th>No HP</th>
-                <td><input type="text" name="no_hp" id="no_hp" class="form-control my-2" value="<?= $data_pasien->no_telepon ?>"></td>
+                <td><input type="text" name="no_hp" id="no_hp" class="form-control my-2 border-dark" value="<?= $data_pasien->no_telepon ?>"></td>
             </tr>
             <tr>
                 <th>Usia</th>
-                <td><input type="number" name="umur" id="umur" class="form-control my-2" value="<?= $data_pasien->umur ?>"></td>
+                <td><input type="number" name="umur" id="umur" class="form-control my-2 border-dark" value="<?= $data_pasien->umur ?>"></td>
             </tr>
             <tr>
                 <th>Pekerjaan</th>
-                <td><input type="text" name="pekerjaan" id="pekerjaan" class="form-control my-2" value="<?= $data_pasien->pekerjaan ?>"></td>
+                <td><input type="text" name="pekerjaan" id="pekerjaan" class="form-control my-2 border-dark" value="<?= $data_pasien->pekerjaan ?>"></td>
             </tr>
             <tr>
                 <th></th>

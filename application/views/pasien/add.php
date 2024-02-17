@@ -7,24 +7,24 @@
         <table style="width: 100%">
             <tr>
                 <th>Nomor Kartu</th>
-                <td><input type="text" name="no_kartu" id="no_kartu" class="form-control my-2"></td>
+                <td><input type="text" name="no_kartu" id="no_kartu" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Nama</th>
-                <td><input type="text" name="nama_pasien" id="nama" class="form-control my-2"></td>
+                <td><input type="text" name="nama_pasien" id="nama" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Alamat</th>
-                <td><input type="text" name="alamat" id="alamat" class="form-control my-2"></td>
+                <td><input type="text" name="alamat" id="alamat" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Jenis Kelamin</th>
                 <td>
                     <div class="my-2">
                         <div class="d-flex flex-nowrap">
-                            <input class="form-check-input mx-2" type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-laki">
+                            <input class="form-check-input mx-2 border-dark" type="radio" name="jenis_kelamin" id="laki_laki" value="Laki-laki">
                             <label for="laki_laki">Laki-laki</label>
-                            <input class="form-check-input mx-2" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
+                            <input class="form-check-input mx-2 border-dark" type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan">
                             <label for="perempuan">Perempuan</label>
                         </div>
                     </div>
@@ -32,15 +32,15 @@
             </tr>
             <tr>
                 <th>No HP</th>
-                <td><input type="text" name="no_hp" id="no_hp" class="form-control my-2"></td>
+                <td><input type="text" name="no_hp" id="no_hp" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Usia</th>
-                <td><input type="number" name="umur" id="umur" class="form-control my-2"></td>
+                <td><input type="number" name="umur" id="umur" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Pekerjaan</th>
-                <td><input type="text" name="pekerjaan" id="pekerjaan" class="form-control my-2"></td>
+                <td><input type="text" name="pekerjaan" id="pekerjaan" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th></th>

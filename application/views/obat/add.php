@@ -7,7 +7,7 @@
         <table style="width: 100%">
             <tr>
                 <th>Nama Obat</th>
-                <td><input type="text" name="nama_obat" class="form-control my-2"></td>
+                <td><input type="text" name="nama_obat" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Kategori</th>
@@ -21,15 +21,15 @@
             </tr>
             <tr>
                 <th>Stok</th>
-                <td><input type="number" name="stok" class="form-control my-2"></td>
+                <td><input type="number" name="stok" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Harga</th>
-                <td><input type="number" name="harga" class="form-control my-2"></td>
+                <td><input type="number" name="harga" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th>Keterangan</th>
-                <td><input type="text" name="keterangan" class="form-control my-2"></td>
+                <td><input type="text" name="keterangan" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
                 <th></th>

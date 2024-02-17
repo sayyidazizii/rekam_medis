@@ -8,15 +8,15 @@
                 <input type="hidden" name="id_tarif" value="<?= $data_tarif->id_data_tarif  ?>">
                 <tr>
                     <th>Nama Jasa</th>
-                    <td><input type="text" name="nama_jasa" class="form-control my-2" value="<?= $data_tarif->nama_jasa  ?>"></td>
+                    <td><input type="text" name="nama_jasa" class="form-control my-2 border-dark" value="<?= $data_tarif->nama_jasa  ?>"></td>
                 </tr>
                 <tr>
                     <th>Harga</th>
-                    <td><input type="number" name="harga" class="form-control my-2" value="<?= $data_tarif->harga  ?>"></td>
+                    <td><input type="number" name="harga" class="form-control my-2 border-dark" value="<?= $data_tarif->harga  ?>"></td>
                 </tr>
                 <tr>
                     <th>Keterangan</th>
-                    <td><input type="text" name="keterangan" class="form-control my-2" value="<?= $data_tarif->keterangan  ?>"></td>
+                    <td><input type="text" name="keterangan" class="form-control my-2 border-dark" value="<?= $data_tarif->keterangan  ?>"></td>
                 </tr>
                 <tr>
                     <th></th>
