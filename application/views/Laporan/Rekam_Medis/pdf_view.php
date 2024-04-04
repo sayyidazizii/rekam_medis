@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Laporan Pembayaran</title>
+  <title>Laporan Rekam Medis</title>
 </head>
 <body>
-  <h3><center>LAPORAN PEMBAYARAN</center></h3>
+  <h3><center>LAPORAN Rekam Medis</center></h3>
   <table border="1" cellspacing="0" cellpadding="5" width="100%">
     <thead>
     <tr>
