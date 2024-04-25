@@ -4,16 +4,16 @@
 
             <?php if($_SESSION['level'] == 1){?>
             <div class="col-sm-6 col-xl-4">
-              <div class="card overflow-hidden rounded-2">
+              <div class="card overflow-hidden rounded-2 bg-primary">
                 <div class="card-body pt-5 p-4">
-                  <h6 class="fw-semibold fs-4"> 
+                  <h6 class="fw-semibold fs-4 text-white"> 
                   <div class="row">
                     <div class="col">
                     <i class="fas fa-user fs-8"></i>    
                     </div>
                     <div class="col">
                     Total Pasien
-                    <h6 class="fw-semibold fs-4 mb-0">
+                    <h6 class="fw-semibold fs-4 mb-0 text-white">
                     <?= $user ?>  
                       <span class="ms-2 fw-normal text-muted fs-3">
                       </span>
@@ -27,16 +27,16 @@
             <?php } ?>
             <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 3){?>
           <div class="col-sm-6 col-xl-4">
-            <div class="card overflow-hidden rounded-2">
+            <div class="card overflow-hidden rounded-2 bg-primary">
               <div class="card-body pt-5 p-4">
-                <h6 class="fw-semibold fs-4">
+                <h6 class="fw-semibold fs-4 text-white">
                 <div class="row">
                     <div class="col">
                       <i class="fas fa-shopping-bag fs-8"></i>             
                     </div>
                     <div class="col">
                     Data Obat
-                      <h6 class="fw-semibold fs-4 mb-0">
+                      <h6 class="fw-semibold fs-4 mb-0 text-white">
                       <?= $obat ?>
                         <span class="ms-2 fw-normal text-muted fs-3">
                         </span>
@@ -50,16 +50,16 @@
           <?php } ?>
           <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){?>
           <div class="col-sm-6 col-xl-4">
-            <div class="card overflow-hidden rounded-2">
+            <div class="card overflow-hidden rounded-2 bg-primary">
               <div class="card-body pt-5 p-4">
-                <h6 class="fw-semibold fs-4">
+                <h6 class="fw-semibold fs-4 text-white">
                     <div class="row">
                       <div class="col">
                         <i class="fas fa-hospital fs-8"></i>             
                       </div>
                       <div class="col">
                       Total Rekam Medis
-                        <h6 class="fw-semibold fs-4 mb-0">
+                        <h6 class="fw-semibold fs-4 mb-0 text-white">
                         <?= $rekam_medis ?>
                           <span class="ms-2 fw-normal text-muted fs-3">
                           </span>
@@ -80,6 +80,7 @@
           </div>
 
         </div>
+        
         
         <script>
 

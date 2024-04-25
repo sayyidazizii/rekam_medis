@@ -6,13 +6,13 @@
         </div>
         <div class="col">
                 <div class="d-flex flex-nowrap input-group mb-3">
-                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                    <input class="form-control border-dark" id="myInput" type="text" placeholder="Search..">
                 </div>
         </div>
     </div>
     <div class="table-responsive">
         <table class="table table-striped">
-            <thead>
+            <thead class="bg-primary text-white">
                 <tr>
                     <th>No.</th>
                     <th>Nama Pasien</th>

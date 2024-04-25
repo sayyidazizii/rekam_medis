@@ -20,23 +20,23 @@
                 </tr>
                 <tr>
                     <th>Nama Pasien</th>
-                    <td><input type="text" name="nama_pasien" id="nama_pasien" class="form-control my-1" readonly></td>
+                    <td><input type="text" name="nama_pasien" id="nama_pasien" class="form-control my-2 border-dark" readonly></td>
                 </tr>
                 <tr>
                     <th>Tanggal Pemeriksaan</th>
-                    <td><input type="date" name="tanggal_periksa" id="tanggal_periksa" class="form-control my-1"></td>
+                    <td><input type="date" name="tanggal_periksa" id="tanggal_periksa" class="form-control my-2 border-dark"></td>
                 </tr>
                 <tr>
                     <th>Amnesa</th>
-                    <td><input type="text" name="amnesa" id="amnesa" class="form-control my-1"></td>
+                    <td><input type="text" name="amnesa" id="amnesa" class="form-control my-2 border-dark"></td>
                 </tr>
                 <tr>
                     <th>Diagnosa</th>
-                    <td><input type="text" name="diagnosa" id="diagnosa" class="form-control my-1"></td>
+                    <td><input type="text" name="diagnosa" id="diagnosa" class="form-control my-2 border-dark"></td>
                 </tr>
                 <tr>
                     <th>Tindakan</th>
-                    <td><input type="text" name="tindakan" id="tindakan" class="form-control my-1"></td>
+                    <td><input type="text" name="tindakan" id="tindakan" class="form-control my-2 border-dark"></td>
                 </tr>
             </table>
             <hr>
@@ -45,7 +45,7 @@
                 <div class="col">Jasa</div>
                 <div class="col">
                     <select class="form-control js-example-basic-single" name="id_data_tarif" id="id_data_tarif">
-                            <option value="0">-- Pilih data --</option>
+                            <!-- <option value="0">-- Pilih data --</option> -->
                         <?php foreach($data_tarif as $item){?> 
                             <option value="<?= $item->id_data_tarif ?>"><?= $item->nama_jasa ?></option>
                         <?php }?>
@@ -71,13 +71,13 @@
             <div class="row">
                 <div class="col">Stok Tersedia</div>
                 <div class="col">
-                    <input type="text" name="stock_quantity" id="stock_quantity" class="form-control my-1"readonly> 
+                    <input type="text" name="stock_quantity" id="stock_quantity" class="form-control my-2 border-dark"readonly> 
                 </div>
             </div>
             <div class="row">
                 <div class="col">Quantity</div>
                 <div class="col">
-                    <input type="number" name="quantity" id="quantity" class="form-control my-1" >
+                    <input type="number" name="quantity" id="quantity" class="form-control my-2 border-dark" >
                 </div>
             </div>
             <div class="row">
@@ -89,7 +89,7 @@
         <div class="row">
             <div class="col">
             <table class="table table-borderless table-hover" id="table-jasa">
-            <thead>
+            <thead class="bg-primary text-white">
                 <tr>
                     <th>Jasa</th>
                     <th>Aksi</th>
@@ -102,7 +102,7 @@
             </div>
             <div class="col">
             <table class="table table-borderless table-hover" id="table-obat">
-            <thead>
+            <thead class="bg-primary text-white">
                 <tr>
                     <th>Obat</th>
                     <th>Quantity</th>
@@ -146,11 +146,16 @@
     });    
 
 
-        $('#id_data_obat').change(function() {
+      $('#id_data_obat').change(function() {
         // Mendapatkan nilai yang dipilih
         var idObat = $(this).val();
         console.log(idObat);
-        
+
+        // Periksa apakah ID obat tidak terdefinisi atau 0
+        if (!idObat || idObat === '0') {
+            $('#stock_quantity').val('0'); // Set stok quantity menjadi 0
+        } else {
+            // Jika ID obat terdefinisi, lakukan AJAX untuk mendapatkan stok
             $.ajax({
                 url: '<?= base_url() ?>/RekamMedis/stock_Obat',
                 type: 'POST',
@@ -166,7 +171,8 @@
                     console.log('Terjadi kesalahan saat menyimpan data jasa.');
                 }
             });
-    });    
+        }
+    });   
 
 
         // Logika untuk menambahkan jasa ke tabel
@@ -176,10 +182,21 @@
         });
 
         // Logika untuk menambahkan obat ke tabel
-        $('#add-obat').click(function() {
-            var selectedObat = $('.js-example-basic-single[name="id_data_obat"] option:selected').text();
+       $('#add-obat').click(function() {
+            // Mendapatkan nilai quantity
             var quantity = $('#quantity').val();
-            $('#table-obat tbody').append('<tr><td>' + selectedObat + '</td><td>' + quantity + '</td><td><button class="btn btn-danger btn-sm remove-obat">Hapus</button></td></tr>');
+
+            // Mendapatkan nilai stok quantity
+            var stockQuantity = $('#stock_quantity').val();
+
+            // Periksa apakah quantity sudah diisi dan stok quantity tidak sama dengan 0
+            if(quantity === '' || stockQuantity === '0') {
+                alert('Maaf, stok obat tidak tersedia atau quantity belum diisi.');
+            } else {
+                // Lanjutkan dengan menampilkan dialog pemilihan obat
+                var selectedObat = $('.js-example-basic-single[name="id_data_obat"] option:selected').text();
+                $('#table-obat tbody').append('<tr><td>' + selectedObat + '</td><td>' + quantity + '</td><td><button class="btn btn-danger btn-sm remove-obat">Hapus</button></td></tr>');
+            }
         });
 
         // Logika untuk menghapus jasa

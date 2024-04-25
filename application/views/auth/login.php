@@ -1,43 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/login_templates/assets/css/login.css">
+</head>
 <body>
-<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-    data-sidebar-position="fixed" data-header-position="fixed">
-    <div
-      class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
-      <div class="d-flex align-items-center justify-content-center w-100">
-        <div class="row justify-content-center w-100">
-          <div class="col-md-8 col-lg-6 col-xxl-3">
-            <div class="card mb-0">
-              <div class="card-body">
-                <?php if ($this->session->flashdata('error_login') == true){
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 login-section-wrapper">
+          <div class="brand-wrapper">
+            <img src="<?php echo base_url() ?>assets/img/Lambang_Kota_Palopo.png" alt="logo" class="logo">
+          </div>
+          <?php if ($this->session->flashdata('error_login') == true){
                   ?>
                   <div class="alert alert-danger" role="alert">Username atau password yang Anda masukkan salah!</div>
                   <?php
                 }
                 ?>
-                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="<?= base_url('')?>/assets/img/logo.jpg" class="rounded-circle" width="100" alt="">
-                </a>
-                <p class="text-center fw-bold fs-5">Wellcome to Rekam Medis</p>
-                <form action="<?= base_url('Login/Auth')?>" method="POST">
-                  <div class="mb-3">
-                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="username" autocomplete="off">
-                  </div>
-                  <div class="mb-4">
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="password" autocomplete="off">
-                  </div>
-                  <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</button>
-                </form>
+          <div class="login-wrapper my-auto">
+            <h2 class="login-title">Klinik Gigi Drg. Adriyanto Suryamin</h2>
+            <h4 class="text-dark">Sistem Informasi Rekam Medis</h4>
+            <form action="<?= base_url('Login/Auth')?>" method="POST">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="username">
               </div>
-            </div>
+              <div class="form-group mb-4">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="passsword">
+              </div>
+              <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Login">
+            </form>
           </div>
+        </div>
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img src="<?php echo base_url() ?>assets/img/img-home.jpg" alt="login image" class="login-img">
         </div>
       </div>
     </div>
-  </div>
-
-  <script src="<?php echo base_url() ?>assets/Modernize-1.0.0/src/assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/Modernize-1.0.0/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
-
 </html>

@@ -7,7 +7,7 @@
         <div class="col">
             <form action="<?= base_url() ?>tarif" method="get">
                 <div class="d-flex flex-nowrap input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Cari tarif" name="data_tarif" style="width: 100%; max-width: 300px;" value="<?php if ($pencarian != null) {echo $pencarian;} ?>">
+                    <input type="text" class="form-control border-dark" placeholder="Cari tarif" name="data_tarif" style="width: 100%; max-width: 300px;" value="<?php if ($pencarian != null) {echo $pencarian;} ?>">
                     <button class="btn btn-secondary" type="submit"><i class="ti ti-search"></i></button>
                 </div>
             </form>
@@ -15,7 +15,7 @@
     </div>
     <div class="table-responsive">
         <table class="table table-striped">
-            <thead>
+            <thead class="bg-primary text-white">
                 <tr>
                     <th>No.</th>
                     <th>Nama Jasa</th>

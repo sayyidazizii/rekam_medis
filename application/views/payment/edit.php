@@ -10,27 +10,27 @@
                 <tr>
                     <th>Nomor RM</th>
                     <td style="width:80%">
-                        <input type="text" hidden name="id_pembayaran" id="id_pembayaran" class="form-control my-1" value="<?= $data_pembayaran->id_pembayaran ?>" readonly>
-                        <input type="text" hidden name="id_rekam_medis" id="id_rekam_medis" class="form-control my-1" value="<?= $rekam_medis->id_rekam_medis ?>" readonly>
-                        <input type="text" name="no_rm" id="no_rm" class="form-control my-1" value="<?= $rekam_medis->no_rm ?>" readonly>
+                        <input type="text" hidden name="id_pembayaran" id="id_pembayaran" class="form-control my-2 border-dark" value="<?= $data_pembayaran->id_pembayaran ?>" readonly>
+                        <input type="text" hidden name="id_rekam_medis" id="id_rekam_medis" class="form-control my-2 border-dark" value="<?= $rekam_medis->id_rekam_medis ?>" readonly>
+                        <input type="text" name="no_rm" id="no_rm" class="form-control my-2 border-dark" value="<?= $rekam_medis->no_rm ?>" readonly>
                     </td>
                 </tr>
                 <tr>
                     <th>Nama Pasien</th>
-                    <input type="text" hidden name="id_pasien" id="id_pasien" class="form-control my-1" value="<?= $rekam_medis->id_pasien ?>" readonly>
-                    <td><input type="text" name="nama_pasien" id="nama_pasien"  class="form-control my-1" value="<?= $rekam_medis->nama_pasien ?>" readonly></td>
+                    <input type="text" hidden name="id_pasien" id="id_pasien" class="form-control my-2 border-dark" value="<?= $rekam_medis->id_pasien ?>" readonly>
+                    <td><input type="text" name="nama_pasien" id="nama_pasien"  class="form-control my-2 border-dark" value="<?= $rekam_medis->nama_pasien ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>Nomor Kartu</th>
-                    <td><input type="text" name="no_kartu" id="no_kartu" class="form-control my-1" value="<?= $rekam_medis->no_kartu ?>" readonly></td>
+                    <td><input type="text" name="no_kartu" id="no_kartu" class="form-control my-2 border-dark" value="<?= $rekam_medis->no_kartu ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>Tanggal Pembayaran</th>
-                    <td><input type="date" name="tanggal_pembayaran" id="tanggal_pembayaran" class="form-control my-1"></td>
+                    <td><input type="date" name="tanggal_pembayaran" id="tanggal_pembayaran" class="form-control my-2 border-dark"></td>
                 </tr>
                 <tr>
                     <th>Tindakan</th>
-                    <td><input type="text" name="tindakan" id="tindakan" class="form-control my-1" value="<?= $rekam_medis->tindakan ?>" readonly></td>
+                    <td><input type="text" name="tindakan" id="tindakan" class="form-control my-2 border-dark" value="<?= $rekam_medis->tindakan ?>" readonly></td>
                 </tr>
             </table>
             <hr>
@@ -97,16 +97,16 @@
                 <tr>
                     <th>Subtotal</th>
                     <td style="width:80%">
-                        <input type="text" name="subtotal" id="subtotal" class="form-control my-1" value="<?= $total_tarif + $total_obat?>" readonly>
+                        <input type="text" name="subtotal" id="subtotal" class="form-control my-2 border-dark" value="<?= $total_tarif + $total_obat?>" readonly>
                     </td>
                 </tr>
                 <tr>
                     <th>Bayar</th>
-                    <td><input type="number" name="bayar" id="bayar"  class="form-control my-1" ></td>
+                    <td><input type="number" name="bayar" id="bayar"  class="form-control my-2 border-dark" ></td>
                 </tr>
                 <tr>
                     <th>Kembalian</th>
-                    <td><input type="text" name="kembalian" id="kembalian" class="form-control my-1" value="0" readonly></td>
+                    <td><input type="text" name="kembalian" id="kembalian" class="form-control my-2 border-dark" value="0" readonly></td>
                 </tr>
             </table>
         <button type="submit" class=" btn btn-primary">simpan</button>

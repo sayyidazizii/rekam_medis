@@ -14,7 +14,7 @@
             </div>
         </div>
         <table class="table table-striped">
-            <thead>
+            <thead class="bg-primary text-white">
                 <tr>
                     <th>No.</th>
                     <th>No. RM</th>

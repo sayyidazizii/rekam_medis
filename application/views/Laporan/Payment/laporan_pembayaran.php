@@ -27,7 +27,7 @@
     </form>
     <div class="table-responsive">
         <table class="table table-striped">
-        <thead>
+        <thead class="bg-primary text-white">
                 <tr>
                     <th>No.</th>
                     <th>Nama Pasien</th>

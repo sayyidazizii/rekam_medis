@@ -10,31 +10,31 @@
                 <tr>
                     <th>Nomor Kartu</th>
                     <td>
-                        <input type="text" name="id_rekam_medis" hidden id="id_rekam_medis" class="form-control my-1 bg-warning" value="<?= $data_rekam_medis->id_rekam_medis ?>" readonly>
-                        <input type="text" name="nama_pasien" id="nama_pasien" class="form-control my-1 bg-warning" value="<?= $data_rekam_medis->no_kartu ?>" readonly>
-                        <input type="text" name="id_pasien" hidden id="id_pasien" class="form-control my-1 bg-warning" value="<?= $data_rekam_medis->id_pasien ?>" readonly>
+                        <input type="text" name="id_rekam_medis" hidden id="id_rekam_medis" class="form-control my-2 border-dark bg-warning" value="<?= $data_rekam_medis->id_rekam_medis ?>" readonly>
+                        <input type="text" name="nama_pasien" id="nama_pasien" class="form-control my-2 border-dark bg-warning" value="<?= $data_rekam_medis->no_kartu ?>" readonly>
+                        <input type="text" name="id_pasien" hidden id="id_pasien" class="form-control my-2 border-dark bg-warning" value="<?= $data_rekam_medis->id_pasien ?>" readonly>
 
                     </td>
                 </tr>
                 <tr>
                     <th>Nama Pasien</th>
-                    <td><input type="text" name="nama_pasien" id="nama_pasien" class="form-control my-1  bg-warning" value="<?= $data_rekam_medis->nama_pasien ?>" readonly></td>
+                    <td><input type="text" name="nama_pasien" id="nama_pasien" class="form-control my-2 border-dark  bg-warning" value="<?= $data_rekam_medis->nama_pasien ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>Tanggal Pemeriksaan</th>
-                    <td><input type="date" name="tanggal_periksa" id="tanggal_periksa" class="form-control my-1" value="<?= $data_rekam_medis->tanggal_periksa ?>" readonly></td>
+                    <td><input type="date" name="tanggal_periksa" id="tanggal_periksa" class="form-control my-2 border-dark" value="<?= $data_rekam_medis->tanggal_periksa ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>Amnesa</th>
-                    <td><input type="text" name="amnesa" id="amnesa" class="form-control my-1" value="<?= $data_rekam_medis->amnesa ?>" readonly></td>
+                    <td><input type="text" name="amnesa" id="amnesa" class="form-control my-2 border-dark" value="<?= $data_rekam_medis->amnesa ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>Diagnosa</th>
-                    <td><input type="text" name="diagnosa" id="diagnosa" class="form-control my-1" value="<?= $data_rekam_medis->diagnosa ?>" readonly></td>
+                    <td><input type="text" name="diagnosa" id="diagnosa" class="form-control my-2 border-dark" value="<?= $data_rekam_medis->diagnosa ?>" readonly></td>
                 </tr>
                 <tr>
                     <th>Tindakan</th>
-                    <td><input type="text" name="tindakan" id="tindakan" class="form-control my-1" value="<?= $data_rekam_medis->tindakan ?>" readonly></td>
+                    <td><input type="text" name="tindakan" id="tindakan" class="form-control my-2 border-dark" value="<?= $data_rekam_medis->tindakan ?>" readonly></td>
                 </tr>
             </table>
             <hr>
@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col">
             <table class="table table-borderless table-hover" id="table-jasa">
-            <thead>
+            <thead class="bg-primary text-white">
                 <tr>
                     <th>Jasa</th>
                 </tr>
@@ -58,7 +58,7 @@
             </div>
             <div class="col">
             <table class="table table-borderless table-hover" id="table-obat">
-            <thead>
+            <thead class="bg-primary text-white">
                 <tr>
                     <th>Obat</th>
                     <th>Quantity</th>
