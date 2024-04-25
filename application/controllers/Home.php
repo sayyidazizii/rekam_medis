@@ -22,6 +22,7 @@ class Home extends CI_Controller {
 
         // Memanggil fungsi count_rekam_medis_per_day() dari model M_rekamMedis
         $data['jumlah_rekam_medis_per_hari'] = $this->M_rekamMedis->count_rekam_medis_per_day();
+        
 
         // echo json_encode($data);
         // exit;

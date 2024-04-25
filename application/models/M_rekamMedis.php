@@ -109,7 +109,7 @@ class M_rekamMedis extends CI_Model
     public function count_rekam_medis_per_day()
     {
         // Dapatkan tanggal awal dan akhir dari bulan ini
-        $start_date = date('Y-m-01');
+        $start_date = date('Y-01-01');
         $end_date = date('Y-m-t');
 
         // Query untuk menghitung jumlah rekam medis per hari pada bulan ini
