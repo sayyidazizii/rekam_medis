@@ -20,7 +20,7 @@
                     <th>Status</th>
                 </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
             <<?php
                 $no = 0;
                 foreach ($data_rekam_medis as $rekam_medis) :

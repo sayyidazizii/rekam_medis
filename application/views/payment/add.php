@@ -43,7 +43,7 @@
                     <th>Harga</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
                 <?php 
                 $total_tarif = 0;
                 foreach($data_rekam_medis_tarif as $item){ 
@@ -70,7 +70,7 @@
                     <th>Harga</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
             <?php 
             $total_obat = 0;
             foreach($data_rekam_medis_obat as $item){ 

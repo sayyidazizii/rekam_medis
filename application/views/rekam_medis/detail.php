@@ -47,7 +47,7 @@
                     <th>Jasa</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
                 <?php foreach($data_rekam_medis_tarif as $item){ ?>
                 <tr>
                     <td><?= $tarifArray[$item->id_data_tarif]?></td>
@@ -64,7 +64,7 @@
                     <th>Quantity</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
             <?php foreach($data_rekam_medis_obat as $item){ ?>
                 <tr>
                     <td><?= $obatArray[$item->id_data_obat]?></td>

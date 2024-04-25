@@ -28,7 +28,7 @@
                     <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
                 <?php
                 $no = 0;
                 foreach ($data_pasien as $pasien) :
@@ -55,5 +55,11 @@
                 <?php endforeach ?>
             </tbody>
         </table>
+         <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                      <div class="pagination-container">
+                                        <button id="prevPage" class="btn btn-sm btn-primary">Previous</button>
+                                        <span id="paginationStatus" class="pagination-status"></span>
+                                        <button id="nextPage" class="btn btn-sm btn-primary">Next</button>
+                                    </div>
     </div>
 </div>

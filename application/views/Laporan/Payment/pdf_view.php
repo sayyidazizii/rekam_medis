@@ -18,7 +18,7 @@
                     <th>Kembalian</th>
                 </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
             <?php
                 $no = 0;
                 foreach ($data_payment as $pembayaran) :

@@ -51,6 +51,43 @@
     //     }
     //   }
     // });
+
+      //paginasi
+  // Jumlah item per halaman
+  var itemsPerPage = 4;
+  var currentPage = 1;
+  
+  function showPage(page) {
+      var rows = $("#myTable tr");
+      var startIndex = (page - 1) * itemsPerPage;
+      var endIndex = startIndex + itemsPerPage;
+  
+      rows.hide();
+      rows.slice(startIndex, endIndex).show();
+  
+      $("#paginationStatus").text("Page " + currentPage + " of " + Math.ceil(rows.length / itemsPerPage));
+  }
+  
+  $(document).ready(function() {
+      showPage(currentPage);
+  
+      $("#nextPage").click(function() {
+          var rows = $("#myTable tr");
+          var totalPages = Math.ceil(rows.length / itemsPerPage);
+  
+          if (currentPage < totalPages) {
+              currentPage++;
+              showPage(currentPage);
+          }
+      });
+  
+      $("#prevPage").click(function() {
+          if (currentPage > 1) {
+              currentPage--;
+              showPage(currentPage);
+          }
+      });
+  });
     
   </script>
 

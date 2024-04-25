@@ -95,7 +95,7 @@
                     <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
 
             </tbody>
         </table>
@@ -109,7 +109,7 @@
                     <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTable">
 
             </tbody>
         </table>
