@@ -127,7 +127,7 @@
         var bayar = parseFloat(bayarInput.value);
 
         // Hitung kembalian
-        var kembalian = subtotal - bayar ;
+        var kembalian = bayar - subtotal  ;
 
         // Tampilkan kembalian di input kembalian
         kembalianInput.value = kembalian.toFixed(2); // Menggunakan toFixed(2) untuk menampilkan 2 desimal

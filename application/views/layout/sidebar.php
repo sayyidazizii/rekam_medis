@@ -57,7 +57,7 @@
               </a>
             </li>
             <?php } ?>
-            <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){?>
+            <?php if($_SESSION['level'] == 1){?>
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('RekamMedis') ?>" aria-expanded="false">
                 <span>
@@ -66,7 +66,6 @@
                 <span class="hide-menu">Rekam Medis</span>
               </a>
             </li>
-            <?php if($_SESSION['level'] == 1){?>
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Payment') ?>" aria-expanded="false">
                 <span>
@@ -76,6 +75,7 @@
               </a>
             </li>
             <?php } ?>
+            <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){?>
             <li class="sidebar-item">
               <a class="sidebar-link" href="<?php echo base_url('Report') ?>" aria-expanded="false">
                 <span>
