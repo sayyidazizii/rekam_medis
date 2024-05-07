@@ -14,9 +14,15 @@
                 <th>Kategori</th>
                 <td>
                     <select name="kategori" class="form-select">
-                        <option value="Obat Ringan" <?php if ($data_obat->kategori == "Obat Ringan") {echo "selected";}?> >Obat Ringan</option>
-                        <option value="Obat Sedang" <?php if ($data_obat->kategori == "Obat Sedang") {echo "selected";}?> >Obat Sedang</option>
-                        <option value="Obat Keras" <?php if ($data_obat->kategori == "Obat Keras") {echo "selected";}?> >Obat Keras</option>
+                        <option value="Obat Ringan" <?php if ($data_obat->kategori == "Obat Ringan") {
+                                                        echo "selected";
+                                                    } ?>>Obat Ringan</option>
+                        <option value="Obat Sedang" <?php if ($data_obat->kategori == "Obat Sedang") {
+                                                        echo "selected";
+                                                    } ?>>Obat Sedang</option>
+                        <option value="Obat Keras" <?php if ($data_obat->kategori == "Obat Keras") {
+                                                        echo "selected";
+                                                    } ?>>Obat Keras</option>
                     </select>
                 </td>
             </tr>
@@ -27,6 +33,10 @@
             <tr>
                 <th>Harga</th>
                 <td><input type="number" name="harga" class="form-control my-2 border-dark" value="<?= $data_obat->harga ?>"></td>
+            </tr>
+            <tr>
+                <th>Expired date</th>
+                <td><input type="date" name="expired_date" class="form-control my-2 border-dark" value="<?= $data_obat->expired_date ?>"></td>
             </tr>
             <tr>
                 <th>Keterangan</th>

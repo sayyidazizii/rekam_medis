@@ -4,26 +4,26 @@
         <a href="<?= base_url() ?>Report" class="btn btn-dark">Kembali</a>
     </div>
     <form action="<?= base_url() ?>Report/rekam_medis_report" method="get">
-    <div class="row">
-        <div class="col">
-            <label for="start_date" class="form-label">Tanggal Awal</label>
-            <div class="d-flex flex-nowrap input-group mb-3">
-                <input class="form-control" name="start_date" id="start_date" value="<?= $start_date ?>" type="date">
+        <div class="row">
+            <div class="col">
+                <label for="start_date" class="form-label">Tanggal Awal</label>
+                <div class="d-flex flex-nowrap input-group mb-3">
+                    <input class="form-control" name="start_date" id="start_date" value="<?= $start_date ?>" type="date">
+                </div>
             </div>
-        </div>
-        <div class="col">
-            <label for="end_date" class="form-label">Tanggal Akhir</label>
+            <div class="col">
+                <label for="end_date" class="form-label">Tanggal Akhir</label>
                 <div class="d-flex flex-nowrap input-group mb-3">
                     <input class="form-control" name="end_date" id="end_date" value="<?= $end_date ?>" type="date">
                 </div>
-        </div>
-        <div class="col">
-            <label for="search" class="form-label"></label>
+            </div>
+            <div class="col">
+                <label for="search" class="form-label"></label>
                 <div class="d-flex flex-nowrap input-group mt-2">
                     <button type="submit" class="btn btn-primary">cari <i class="ti ti-search"></i></button>
                 </div>
+            </div>
         </div>
-    </div>
     </form>
 
     <div class="table-responsive">
@@ -38,11 +38,10 @@
                     <th>Diagnosa</th>
                     <th>Tanggal</th>
                     <th>Tindakan</th>
-                    <th>Status</th>
                 </tr>
             </thead>
             <tbody id="myTable">
-            <?php
+                <?php
                 $no = 0;
                 foreach ($data_rekam_medis as $rekam_medis) :
                     $no++;
@@ -57,11 +56,7 @@
                         <td><?= $rekam_medis->diagnosa ?></td>
                         <td><?= $rekam_medis->tanggal_periksa ?></td>
                         <td><?= $rekam_medis->tindakan ?></td>
-                        <?php if($rekam_medis->status_bayar == 1){ ?>
-                            <td>Dibayar</td>
-                        <?php }else{?>
-                            <td>Belum Dibayar</td>
-                        <?php }?>
+
                     </tr>
 
                 <?php endforeach ?>

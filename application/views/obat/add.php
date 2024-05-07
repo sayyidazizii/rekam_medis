@@ -28,6 +28,10 @@
                 <td><input type="number" name="harga" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
+                <th>Expired date</th>
+                <td><input type="date" name="expired_date" class="form-control my-2 border-dark"></td>
+            </tr>
+            <tr>
                 <th>Keterangan</th>
                 <td><input type="text" name="keterangan" class="form-control my-2 border-dark"></td>
             </tr>

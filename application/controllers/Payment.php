@@ -21,18 +21,38 @@ class Payment extends CI_Controller
 	public function index()
 	{
 		$data_payment = $this->input->get('data_payment');
+		$start_date = $this->input->get('start_date');
+		$end_date 	= $this->input->get('end_date');
+
+		// Panggil metode getRekamMedis dari model untuk mendapatkan data rekam medis
+		// $data['data_rekam_medis'] = $this->M_rekamMedis->get_tarif_rekamMedis(1);
+		// echo json_encode($data);
+		// exit;
 
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
 
-		if ($data_payment != null) {
-			$data['data_payment']       = $this->M_payment->get_search_data($data_payment);
-			$data['pencarian']          = $data_payment;
+		if ($start_date != null) {
+			$data['data_payment'] 			= $this->M_payment->report($start_date, $end_date);
+			$data['start_date'] 	= $start_date;
+			$data['end_date'] 		= $end_date;
+
+			// Ambil data tarif untuk setiap pembayaran
+			foreach ($data['data_payment'] as $payment) {
+				$payment->tarif = $this->M_rekamMedis->get_tarif_rekamMedis($payment->id_rekam_medis);
+			}
+
 			$this->load->view('Payment/payment', $data);
 		} else {
-			$data['data_payment']       = $this->M_payment->get_data();
-			$data['pencarian']          = null;
+			$data['data_payment'] 	= $this->M_payment->get_data();
+			$data['start_date'] 	= null;
+			$data['end_date'] 		= null;
+
+			// Ambil data tarif untuk setiap pembayaran
+			foreach ($data['data_payment'] as $payment) {
+				$payment->tarif = $this->M_rekamMedis->get_tarif_rekamMedis($payment->id_rekam_medis);
+			}
 			$this->load->view('Payment/payment', $data);
 		}
 
@@ -46,7 +66,7 @@ class Payment extends CI_Controller
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
-		$this->load->view('payment/list_rekam_medis',$data);
+		$this->load->view('payment/list_rekam_medis', $data);
 		$this->load->view('layout/footer');
 	}
 
@@ -79,7 +99,6 @@ class Payment extends CI_Controller
 		foreach ($data['data_tarif'] as $tarif) {
 			$tarifArray[$tarif->id_data_tarif] = $tarif->nama_jasa;
 			$hargaTarif[$tarif->id_data_tarif] = $tarif->harga;
-
 		}
 		// Kirimkan data tarif ke view
 		$data['tarifArray'] = $tarifArray;
@@ -90,7 +109,7 @@ class Payment extends CI_Controller
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
-		$this->load->view('payment/add',$data);
+		$this->load->view('payment/add', $data);
 		$this->load->view('layout/footer');
 	}
 
@@ -109,7 +128,7 @@ class Payment extends CI_Controller
 		$data = array(
 			'id_rekam_medis'	=> $id_rekam_medis,
 			'id_pasien' 		=> $id_pasien,
-			'tanggal_pembayaran'=> $tanggal_pembayaran,
+			'tanggal_pembayaran' => $tanggal_pembayaran,
 			'subtotal'			=> $subtotal,
 			'bayar'				=> $bayar,
 			'kembalian'			=> $kembalian,
@@ -124,11 +143,12 @@ class Payment extends CI_Controller
 	public function nama_Pasien()
 	{
 		$idPasien = $this->input->post('id_pasien');
-		
+
 		$dataPasien = $this->M_pasien->get_data_pasien($idPasien);
 
 		echo $dataPasien->nama_pasien; // Kirim nama pasien sebagai respons
 	}
+
 
 	//hapus
 	function hapus_pembayaran($id_pembayaran)
@@ -136,11 +156,11 @@ class Payment extends CI_Controller
 		$this->M_payment->soft_delete($id_pembayaran);
 		redirect('Payment');
 	}
-	
+
 	// edit
 	function ubah_pembayaran($id_pembayaran)
 	{
-  		$data['data_pembayaran'] 		= $this->M_payment->get_data_pembayaran($id_pembayaran);
+		$data['data_pembayaran'] 		= $this->M_payment->get_data_pembayaran($id_pembayaran);
 
 
 		$data['rekam_medis']   			= $this->M_rekamMedis->get_data_rekamMedis($data['data_pembayaran']->id_rekam_medis);
@@ -170,7 +190,6 @@ class Payment extends CI_Controller
 		foreach ($data['data_tarif'] as $tarif) {
 			$tarifArray[$tarif->id_data_tarif] = $tarif->nama_jasa;
 			$hargaTarif[$tarif->id_data_tarif] = $tarif->harga;
-
 		}
 		// Kirimkan data tarif ke view
 		$data['tarifArray'] = $tarifArray;
@@ -180,7 +199,7 @@ class Payment extends CI_Controller
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
-		$this->load->view('payment/edit',$data);
+		$this->load->view('payment/edit', $data);
 		$this->load->view('layout/footer');
 	}
 
@@ -198,7 +217,7 @@ class Payment extends CI_Controller
 			'id_pembayaran' 	=> $id_pembayaran,
 			'id_rekam_medis' 	=> $id_rekam_medis,
 			'id_pasien' 		=> $id_pasien,
-			'tanggal_pembayaran'=> $tanggal_pembayaran,
+			'tanggal_pembayaran' => $tanggal_pembayaran,
 			'subtotal'			=> $subtotal,
 			'bayar'				=> $bayar,
 			'kembalian'			=> $kembalian,
@@ -242,7 +261,6 @@ class Payment extends CI_Controller
 		foreach ($data['data_tarif'] as $tarif) {
 			$tarifArray[$tarif->id_data_tarif] = $tarif->nama_jasa;
 			$hargaTarif[$tarif->id_data_tarif] = $tarif->harga;
-
 		}
 		// Kirimkan data tarif ke view
 		$data['tarifArray'] = $tarifArray;
@@ -252,7 +270,7 @@ class Payment extends CI_Controller
 		$this->load->view('layout/header');
 		$this->load->view('layout/sidebar');
 		$this->load->view('layout/navbar');
-		$this->load->view('payment/detail',$data);
+		$this->load->view('payment/detail', $data);
 		$this->load->view('layout/footer');
 	}
 }

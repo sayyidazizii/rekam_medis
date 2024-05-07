@@ -5,7 +5,7 @@ class M_payment extends CI_Model
     public $table = 'pembayaran';
 
     function get_data()
-    {   
+    {
 
         $this->db->select('pembayaran.*, pasien.nama_pasien, pasien.no_kartu');
         $this->db->from($this->table);
@@ -13,16 +13,16 @@ class M_payment extends CI_Model
         $this->db->where('pembayaran.data_state = 0');
         return $this->db->get()->result();
     }
-    
+
     //list rekam medis
     function get_data_rekam_medis()
     {
-         // Lakukan join dengan tabel pasien
-         $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
-         $this->db->from('rekam_medis');
-         $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
-         $this->db->where('rekam_medis.status_bayar = 0');
-         return $this->db->get()->result();
+        // Lakukan join dengan tabel pasien
+        $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
+        $this->db->from('rekam_medis');
+        $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
+        $this->db->where('rekam_medis.status_bayar = 0');
+        return $this->db->get()->result();
     }
 
     function save_payment($data_pembayaran)
@@ -69,15 +69,14 @@ class M_payment extends CI_Model
     }
 
     //report
-    public function report($start_date,$end_date)
+    public function report($start_date, $end_date)
     {
         $this->db->select('pembayaran.*, pasien.nama_pasien, pasien.no_kartu');
         $this->db->from($this->table);
         $this->db->join('pasien', 'pembayaran.id_pasien = pasien.id_pasien', 'left');
         $this->db->where('pembayaran.data_state = 0');
-        $this->db->where('pembayaran.tanggal_pembayaran >=',$start_date);
-        $this->db->where('pembayaran.tanggal_pembayaran <=',$end_date);
+        $this->db->where('pembayaran.tanggal_pembayaran >=', $start_date);
+        $this->db->where('pembayaran.tanggal_pembayaran <=', $end_date);
         return $this->db->get()->result();
     }
-
 }

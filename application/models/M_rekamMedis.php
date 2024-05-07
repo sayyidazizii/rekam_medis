@@ -8,11 +8,11 @@ class M_rekamMedis extends CI_Model
     {
         // return $this->db->get($this->table)->result();
 
-         // Lakukan join dengan tabel pasien
-         $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
-         $this->db->from($this->table);
-         $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
-         return $this->db->get()->result();
+        // Lakukan join dengan tabel pasien
+        $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
+        $this->db->from($this->table);
+        $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
+        return $this->db->get()->result();
     }
 
     function save($data_rekam_medis)
@@ -82,7 +82,7 @@ class M_rekamMedis extends CI_Model
         $this->db->order_by('rekam_medis.id_rekam_medis', 'DESC');
         return $this->db->get()->row();
     }
-    
+
     function get_data_obat($id_rekam_medis)
     {
         $this->db->where('id_rekam_medis', $id_rekam_medis);
@@ -96,13 +96,13 @@ class M_rekamMedis extends CI_Model
     }
 
 
-    public function report($start_date,$end_date)
+    public function report($start_date, $end_date)
     {
-         $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
-         $this->db->from($this->table);
-         $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
-         $this->db->where('rekam_medis.tanggal_periksa >=', $start_date);
-         $this->db->where('rekam_medis.tanggal_periksa <=', $end_date);
+        $this->db->select('rekam_medis.*, pasien.nama_pasien, pasien.no_kartu');
+        $this->db->from($this->table);
+        $this->db->join('pasien', 'rekam_medis.id_pasien = pasien.id_pasien', 'left');
+        $this->db->where('rekam_medis.tanggal_periksa >=', $start_date);
+        $this->db->where('rekam_medis.tanggal_periksa <=', $end_date);
         return $this->db->get()->result();
     }
 
@@ -120,6 +120,20 @@ class M_rekamMedis extends CI_Model
         $this->db->group_by('tanggal_periksa');
         $query = $this->db->get();
 
+        return $query->result();
+    }
+
+    function get_tarif_rekamMedis($id_rekam_medis)
+    {
+        // $this->db->where('id_rekam_medis', $id_rekam_medis);
+        // return $this->db->get($this->table)->row();
+
+        $this->db->select('rekam_medis_tarif.*,tarif.*');
+        $this->db->from('rekam_medis_tarif');
+        // $this->db->join('rekam_medis_tarif', 'rekam_medis_tarif.id_rekam_medis = rekam_medis.id_rekam_medis');
+        $this->db->join('tarif', 'rekam_medis_tarif.id_data_tarif = tarif.id_data_tarif');
+        $this->db->where('rekam_medis_tarif.id_rekam_medis', $id_rekam_medis);
+        $query = $this->db->get();
         return $query->result();
     }
 }

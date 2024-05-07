@@ -49,6 +49,7 @@ class Obat extends CI_Controller
 		$kategori 		= $this->input->post('kategori');
 		$stok 			= $this->input->post('stok');
 		$harga 			= $this->input->post('harga');
+		$expired_date 	= $this->input->post('expired_date');
 		$keterangan 	= $this->input->post('keterangan');
 
 		$data_obat = array(
@@ -57,6 +58,7 @@ class Obat extends CI_Controller
 			'kategori'		=> $kategori,
 			'stok'			=> $stok,
 			'harga' 		=> $harga,
+			'expired_date' 	=> $expired_date,
 			'keterangan' 	=> $keterangan
 		);
 
@@ -87,6 +89,7 @@ class Obat extends CI_Controller
 		$kategori 		= $this->input->post('kategori');
 		$stok 			= $this->input->post('stok');
 		$harga 			= $this->input->post('harga');
+		$expired_date 	= $this->input->post('expired_date');
 		$keterangan 	= $this->input->post('keterangan');
 
 		$data_obat = array(
@@ -94,6 +97,7 @@ class Obat extends CI_Controller
 			'kategori'		=> $kategori,
 			'stok'			=> $stok,
 			'harga' 		=> $harga,
+			'expired_date' 	=> $expired_date,
 			'keterangan' 	=> $keterangan
 		);
 
