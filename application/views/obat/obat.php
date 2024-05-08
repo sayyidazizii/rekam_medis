@@ -20,12 +20,14 @@
             <thead class="bg-primary text-white">
                 <tr>
                     <th>No.</th>
+                    <th>Kode_Obat</th>
                     <th>Nama Obat</th>
                     <th>Kategori</th>
-                    <th>Stok</th>
+                    <th>Stok_Obat</th>
+                    <th>Satuan</th>
                     <th>Harga</th>
-                    <th>Expired Date</th>
-                    <th>Keterangan</th>
+                    <th>Expired_Date</th>
+                    <th>Ket</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -38,10 +40,12 @@
 
                     <tr>
                         <td><?= $no ?></td>
+                        <td><?= $obat->kode_obat ?></td>
                         <td><?= $obat->nama_obat ?></td>
                         <td><?= $obat->kategori ?></td>
                         <td><?= $obat->stok ?></td>
-                        <td><?= $obat->harga ?></td>
+                        <td><?= $obat->nama_satuan ?></td>
+                        <td>Rp.<?= number_format($obat->harga) ?></td>
                         <td><?= $obat->expired_date ?></td>
                         <td><?= $obat->keterangan ?></td>
                         <td>

@@ -33,7 +33,7 @@
           <li class="sidebar-item">
             <a class="sidebar-link" href="<?php echo base_url('Pasien') ?>" aria-expanded="false">
               <span>
-                <i class="ti ti-user"></i>
+                <i class="ti ti-users"></i>
               </span>
               <span class="hide-menu">Data Pasien</span>
             </a>
@@ -87,7 +87,7 @@
             </a>
           </li>
         <?php } ?>
-        <?php if ($_SESSION['level'] == 0) { ?>
+        <?php if ($_SESSION['level'] == 1 || $_SESSION['level'] == 2) { ?>
           <li class="sidebar-item">
             <a class="sidebar-link" href="<?php echo base_url('User') ?>" aria-expanded="false">
               <span>
@@ -97,6 +97,14 @@
             </a>
           </li>
         <?php } ?>
+        <hr>
+        <li class="sidebar-item ">
+            <a class="sidebar-link bg-primary text-white" href="#" aria-expanded="false">
+              <span>
+              </span>
+              <span class="hide-menu">Login Sebagai : <?= $_SESSION['nama'] ?></span>
+            </a>
+          </li>
       </ul>
     </nav>
     <!-- End Sidebar navigation -->

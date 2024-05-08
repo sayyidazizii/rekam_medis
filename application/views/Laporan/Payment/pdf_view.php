@@ -7,9 +7,14 @@
 </head>
 
 <body>
-  <h3>
-    <center>LAPORAN PEMBAYARAN</center>
-  </h3>
+    <center>
+    <h3>
+        <h3>Klinik Gigi Drg. Adriyanto Suryamin</h3>
+        <hr>
+        <p class="mt-5">LAPORAN PEMBAYARAN</p>
+    </h3>
+    </center>
+    
   <table border="1" cellspacing="0" cellpadding="5" width="100%">
     <thead>
       <tr>
@@ -24,8 +29,11 @@
     <tbody id="myTable">
       <?php
       $no = 0;
+                $subTotal = 0;
+
       foreach ($data_payment as $pembayaran) :
         $no++;
+          $subTotal += $pembayaran->subtotal;
       ?>
 
         <tr>
@@ -41,9 +49,14 @@
             <!-- Tampilkan sisa data pembayaran -->
           </td>
           <td><?= $pembayaran->tanggal_pembayaran ?></td>
-          <td><?= $pembayaran->subtotal ?></td>
+          <td>Rp.<?= number_format( $pembayaran->subtotal) ?></td>
         </tr>
       <?php endforeach ?>
+      <tr>
+                    <td></td>
+                    <td colspan="4">Subtotal</td> <!-- Merentangkan kolom dari kolom 1 hingga 3 -->
+                    <td>Rp.<?= number_format($subTotal) ?></td>
+      </tr>
     </tbody>
   </table>
 </body>

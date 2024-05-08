@@ -1,8 +1,8 @@
 <div class="body-wrapper">
 
 <!--  Header Start -->
-<header class="app-header">
-        <nav class="navbar navbar-expand-lg navbar-light">
+<header class="app-header  bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-primary bg-primary">
           <ul class="navbar-nav">
             <li class="nav-item d-block d-xl-none">
               <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
@@ -16,6 +16,7 @@
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <img src="<?php echo base_url() ?>assets/Modernize/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                  <span class="mx-2 text-sm"><?= $_SESSION['nama'] ?></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                 <div class="message-body">

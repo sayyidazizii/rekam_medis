@@ -1,6 +1,18 @@
       </div>
     </div>
+    
   </div>
+  <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> 
+              <b></b>
+            </span>
+          </div>
+        </div>
+        </footer>
+      <!-- Footer -->
   
   
   <script src="<?php echo base_url() ?>assets/select2-4.0.13/dist/js/select2.min.js"></script>

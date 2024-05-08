@@ -6,6 +6,10 @@
     <form action="<?= base_url() ?>/obat/simpan_ubah_obat" method="post">
         <table style="width: 100%">
             <input type="hidden" name="id_obat" value="<?= $data_obat->id_data_obat ?>">
+             <tr>
+                <th>Kode Obat</th>
+                <td><input type="text" name="kode_obat" class="form-control my-2 border-dark bg-secondary" value="<?= $data_obat->kode_obat ?>" readonly></td>
+            </tr>
             <tr>
                 <th>Nama Obat</th>
                 <td><input type="text" name="nama_obat" class="form-control my-2 border-dark" value="<?= $data_obat->nama_obat ?>"></td>
@@ -33,6 +37,17 @@
             <tr>
                 <th>Harga</th>
                 <td><input type="number" name="harga" class="form-control my-2 border-dark" value="<?= $data_obat->harga ?>"></td>
+            </tr>
+            <tr>
+                <th>Satuan</th>
+                <td>
+                        <select class="form-control js-example-basic-single" name="id_satuan" id="id_satuan">
+                        <option value="0">-- Pilih data --</option>
+                        <?php foreach($satuan as $item){?> 
+                              <option value="<?= $item->id_satuan ?>" <?php if ($item->id_satuan == $data_obat->id_satuan) { echo "selected"; } ?>><?= $item->nama_satuan ?></option>
+                        <?php }?>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <th>Expired date</th>

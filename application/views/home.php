@@ -1,10 +1,18 @@
           <div class="container-fluid">
             <!--  Row 1 -->
             <div class="row">
-
+          <?php if ($_SESSION['is_login'] == true) {
+          ?>
+          <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>Selamat Datang <?= $_SESSION['nama'] ?> </strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <?php
+          }
+          ?>
             <?php if($_SESSION['level'] == 1){?>
             <div class="col-sm-6 col-xl-4">
-              <div class="card overflow-hidden rounded-2 bg-primary">
+              <div class="card shadow card-hover overflow-hidden rounded-2 bg-primary">
                 <div class="card-body pt-5 p-4">
                   <h6 class="fw-semibold fs-4 text-white"> 
                   <div class="row">
@@ -27,7 +35,7 @@
             <?php } ?>
             <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 3){?>
           <div class="col-sm-6 col-xl-4">
-            <div class="card overflow-hidden rounded-2 bg-primary">
+            <div class="card shadow card-hover overflow-hidden rounded-2 bg-primary">
               <div class="card-body pt-5 p-4">
                 <h6 class="fw-semibold fs-4 text-white">
                 <div class="row">
@@ -50,7 +58,7 @@
           <?php } ?>
           <?php if($_SESSION['level'] == 1 || $_SESSION['level'] == 2){?>
           <div class="col-sm-6 col-xl-4">
-            <div class="card overflow-hidden rounded-2 bg-primary">
+            <div class="card shadow card-hover overflow-hidden rounded-2 bg-primary">
               <div class="card-body pt-5 p-4">
                 <h6 class="fw-semibold fs-4 text-white">
                     <div class="row">

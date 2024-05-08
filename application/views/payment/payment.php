@@ -78,7 +78,7 @@
                                     <!-- Tampilkan sisa data pembayaran -->
                                 </td>
                                 <td><?= $pembayaran->tanggal_pembayaran ?></td>
-                                <td><?= $pembayaran->subtotal ?></td>
+                                <td>Rp.<?= number_format($pembayaran->subtotal) ?></td>
 
                                 <td>
                                     <div class="d-flex flex-nowrap">

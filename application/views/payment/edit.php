@@ -52,12 +52,12 @@
                 ?>
                 <tr>
                     <td><?= $tarifArray[$item->id_data_tarif]?></td>
-                    <td><?= $hargaTarif[$item->id_data_tarif]?></td>
+                    <td>Rp.<?= number_format($hargaTarif[$item->id_data_tarif])?></td>
                 </tr>
                 <?php }?>
                 <tr>
                     <td class="fw-bold">Total : </td>
-                    <td><?= $total_tarif?></td>
+                    <td>Rp.<?= number_format($total_tarif)?></td>
                 </tr>
             </tbody>
         </table>
@@ -80,13 +80,13 @@
                 <tr>
                     <td><?= $obatArray[$item->id_data_obat]?></td>
                     <td><?= $item->quantity?></td>
-                    <td><?= $hargaObat[$item->id_data_obat]?></td>
+                    <td>Rp.<?= number_format($hargaObat[$item->id_data_obat])?></td>
                 </tr>
             <?php }?>
                 <tr>
                     <td class="fw-bold">Total : </td>
                     <td></td>
-                    <td><?= $total_obat?></td>
+                    <td>Rp.<?= number_format($total_obat)?></td>
                 </tr>
             </tbody>
         </table>
@@ -97,17 +97,19 @@
                 <tr>
                     <th>Subtotal</th>
                     <td style="width:80%">
-                        <input type="text" name="subtotal" id="subtotal" class="form-control my-2 border-dark" value="<?= $total_tarif + $total_obat?>" readonly>
+                        <input type="text" name="subtotal_view" id="subtotal_view" class="form-control my-2 border-dark" value="Rp.<?= number_format($total_tarif + $total_obat)?>" readonly>
+
+                        <input type="text" hidden name="subtotal" id="subtotal" class="form-control my-2 border-dark" value="<?= $total_tarif + $total_obat?>" readonly>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <th>Bayar</th>
                     <td><input type="number" name="bayar" id="bayar"  class="form-control my-2 border-dark" ></td>
                 </tr>
                 <tr>
                     <th>Kembalian</th>
                     <td><input type="text" name="kembalian" id="kembalian" class="form-control my-2 border-dark" value="0" readonly></td>
-                </tr>
+                </tr> -->
             </table>
         <button type="submit" class=" btn btn-primary">simpan</button>
     </form>

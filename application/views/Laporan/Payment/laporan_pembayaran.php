@@ -61,13 +61,13 @@
                             <!-- Tampilkan sisa data pembayaran -->
                         </td>
                         <td><?= $pembayaran->tanggal_pembayaran ?></td>
-                        <td><?= $pembayaran->subtotal ?></td>
+                        <td>Rp.<?= number_format($pembayaran->subtotal) ?></td>
                     </tr>
                 <?php endforeach ?>
                 <tr>
                     <td></td>
                     <td colspan="4" class="fw-bold text-center">Subtotal</td> <!-- Merentangkan kolom dari kolom 1 hingga 3 -->
-                    <td><?= $subTotal ?></td>
+                    <td>Rp.<?= number_format($subTotal) ?></td>
                     <td></td>
                 </tr>
             </tbody>

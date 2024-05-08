@@ -63,7 +63,7 @@
                     <select class="form-control js-example-basic-single" name="id_data_obat" id="id_data_obat">
                             <option value="0">-- Pilih data --</option>
                         <?php foreach($data_obat as $item){?> 
-                            <option value="<?= $item->id_data_obat ?>"><?= $item->nama_obat ?></option>
+                            <option value="<?= $item->id_data_obat ?>"><?= $item->kode_obat ?> - <?= $item->nama_obat ?> - <?= $item->nama_satuan ?></option>
                         <?php }?>
                     </select>
                 </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">Quantity</div>
+                <div class="col">Quantity <div class="badge bg-danger">(jumlah obat untuk rekam medis) *</div>  </div>
                 <div class="col">
                     <input type="number" name="quantity" id="quantity" class="form-control my-2 border-dark" >
                 </div>

@@ -6,7 +6,11 @@ class M_obat extends CI_Model
 
     function get_data()
     {
-        return $this->db->get($this->table)->result();
+        $this->db->select('obat.*, satuan.id_satuan, satuan.nama_satuan');
+        $this->db->from($this->table);
+        $this->db->join('satuan', 'satuan.id_satuan = obat.id_satuan', 'left');
+        return $this->db->get()->result();
+        // return $this->db->get($this->table)->result();
     }
 
     function save_medicine($data_obat)
@@ -40,5 +44,19 @@ class M_obat extends CI_Model
         $this->db->or_like('keterangan', $data_obat);
 
         return $this->db->get($this->table)->result();
+    }
+
+    function latest()
+    {
+        $this->db->select('obat.*');
+        $this->db->from($this->table);
+        $this->db->order_by('obat.id_data_obat', 'DESC');
+        return $this->db->get()->row();
+    }
+
+    function getSatuan(){
+        $this->db->select('satuan.*');
+        $this->db->from('satuan');
+        return $this->db->get()->result();
     }
 }

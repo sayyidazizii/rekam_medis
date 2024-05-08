@@ -28,6 +28,17 @@
                 <td><input type="number" name="harga" class="form-control my-2 border-dark"></td>
             </tr>
             <tr>
+                <th>Satuan</th>
+                <td>
+                        <select class="form-control js-example-basic-single" name="id_satuan" id="id_satuan">
+                        <option value="0">-- Pilih data --</option>
+                        <?php foreach($satuan as $item){?> 
+                            <option value="<?= $item->id_satuan ?>"><?= $item->nama_satuan ?></option>
+                        <?php }?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <th>Expired date</th>
                 <td><input type="date" name="expired_date" class="form-control my-2 border-dark"></td>
             </tr>

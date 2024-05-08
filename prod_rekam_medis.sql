@@ -23,21 +23,24 @@ DROP TABLE IF EXISTS `obat`;
 CREATE TABLE `obat` (
   `id_data_obat` int NOT NULL AUTO_INCREMENT,
   `nama_obat` varchar(25) NOT NULL,
+  `kode_obat` varchar(255) DEFAULT NULL,
   `kategori` varchar(30) NOT NULL,
   `stok` varchar(15) NOT NULL,
+  `id_satuan` int DEFAULT NULL,
   `harga` varchar(20) NOT NULL,
   `expired_date` date DEFAULT NULL,
   `keterangan` varchar(50) NOT NULL,
   PRIMARY KEY (`id_data_obat`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `obat` */
 
-insert  into `obat`(`id_data_obat`,`nama_obat`,`kategori`,`stok`,`harga`,`expired_date`,`keterangan`) values 
-(1,'Paracetamol','Obat Sedang','80','6000','2024-05-04','Obat penurun panas dan pereda nyeri'),
-(3,'Promag','Obat Ringan','90','4000','2024-05-04','Obat untuk meredakan sakit pada lambung/perut'),
-(5,'Cataflam ','Obat Ringan','100','5000','2030-10-01','-'),
-(6,'Ponstan ','Obat Ringan','100','8000','2024-05-31','-');
+insert  into `obat`(`id_data_obat`,`nama_obat`,`kode_obat`,`kategori`,`stok`,`id_satuan`,`harga`,`expired_date`,`keterangan`) values 
+(1,'Paracetamol','OBT0001','Obat Sedang','80',2,'6000','2024-05-04','Obat penurun panas dan pereda nyeri'),
+(3,'Promag','OBT0002','Obat Ringan','90',2,'4000','2024-05-04','Obat untuk meredakan sakit pada lambung/perut'),
+(5,'Cataflam ','OBT0003','Obat Ringan','100',2,'5000','2030-10-01','-'),
+(6,'Ponstan ','OBT0004','Obat Ringan','100',2,'8000','2024-05-31','-'),
+(10,'Mixagrip','OBT0005','Obat Ringan','100',1,'2000','2024-05-08','-');
 
 /*Table structure for table `pasien` */
 
@@ -157,6 +160,25 @@ insert  into `rekam_medis_tarif`(`id_rekam_medis_tarif`,`id_rekam_medis`,`id_dat
 (4,4,2,NULL),
 (5,5,4,NULL);
 
+/*Table structure for table `satuan` */
+
+DROP TABLE IF EXISTS `satuan`;
+
+CREATE TABLE `satuan` (
+  `id_satuan` int NOT NULL AUTO_INCREMENT,
+  `nama_satuan` varchar(255) DEFAULT NULL,
+  `data_state` int DEFAULT '0',
+  PRIMARY KEY (`id_satuan`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+/*Data for the table `satuan` */
+
+insert  into `satuan`(`id_satuan`,`nama_satuan`,`data_state`) values 
+(1,'PCS',0),
+(2,'Tablet',0),
+(3,'Strip',0),
+(4,'BTL',0);
+
 /*Table structure for table `tarif` */
 
 DROP TABLE IF EXISTS `tarif`;
@@ -188,14 +210,15 @@ CREATE TABLE `user` (
   `level` enum('1','2','3') DEFAULT NULL,
   `data_state` int DEFAULT '0',
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*Data for the table `user` */
 
 insert  into `user`(`id_user`,`username`,`password`,`nama`,`level`,`data_state`) values 
 (1,'Admin','25d55ad283aa400af464c76d713c07ad','Admin','1',0),
 (3,'Dokter','e10adc3949ba59abbe56e057f20f883e','Dokter','2',0),
-(4,'Apoteker','827ccb0eea8a706c4c34a16891f84e7b','Apoteker','3',0);
+(4,'Apoteker','827ccb0eea8a706c4c34a16891f84e7b','Apoteker','3',0),
+(5,'admin2','202cb962ac59075b964b07152d234b70','admin2','1',0);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -36,7 +36,7 @@
                     <tr>
                         <td><?= $no ?></td>
                         <td><?= $tarif->nama_jasa ?></td>
-                        <td><?= $tarif->harga ?></td>
+                        <td>Rp <?= number_format( $tarif->harga) ?></td>
                         <td><?= $tarif->keterangan ?></td>
                         <td>
                             <div class="d-flex flex-nowrap">
